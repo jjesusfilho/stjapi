@@ -1,9 +1,21 @@
 import pandas as pd
 import json
 import numpy as np
+from time import strftime, gmtime
 
 # Function to create DataFrames for each table
-def create_dataframes(process_data):
+def create_dataframes(filpath: str):
+
+    
+    with open(filepath,'r') as file:
+        data = json.load(file)
+    
+    process_data = data["list"][0]
+    
+    data_situacao1 = ''.join(x for x in filepath.split('_time_')[1] if x.isnumeric())
+
+    data_situacao = strftime('%Y-%m-%d', gmtime(int(data_situacao1)))
+    
     dataframes = {}
 
     # Processo Table
@@ -56,11 +68,13 @@ def create_dataframes(process_data):
         'ministro': process_data.get('ministro'),
         'codigoAssuntoCNJ': process_data.get('codigoAssuntoCNJ'),
         'local': process_data.get('local', {}).get('seq') if process_data.get('local') else None,
-        'documentos': None,  # Not available in the JSON
+        'documentos': process_data.get('documentos') if process_data.get('documentos') else None, 
         'representativoControversia': process_data.get('representativoControversia'),
         'repetitivo': process_data.get('repetitivo'),
-        'valorCausa': process_data.get('valorCausa')
+        'valorCausa': process_data.get('valorCausa'),
+        'dataSituacao': dataSituacao
     }
+    
     dataframes['Processo'] = pd.DataFrame([processo_data])
 
     # Decisao Table
