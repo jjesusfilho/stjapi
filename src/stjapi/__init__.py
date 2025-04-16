@@ -1,5 +1,5 @@
 # stj_process_client/__init__.py
-from .consultar import STJClient
-from .extrair import create_dataframes
+from .client import STJClient
+from .reader import STJLer
 
-__all__ = ['STJClient', 'create_dataframes']
+__all__ = ['STJClient', 'STJLer']
