@@ -1,0 +1,515 @@
+{
+  "sucesso": true,
+  "mensagem": "processo",
+  "codigoErro": 0,
+  "list": [
+    {
+      "numeroRegistro": "202403846967",
+      "numeroRegistroFormatado": "2024/0384696-7",
+      "classe": {
+        "codigo": "26",
+        "sigla": "Pet",
+        "codigoClasseEmbargada": null,
+        "nomeClasse": "PETIÇÃO"
+      },
+      "numeroProcessoClasse": 17221,
+      "qtdVolumes": 1,
+      "qtdApensos": 0,
+      "dataRegistroProtocolo": null,
+      "dataAutuacao": "2024-10-09",
+      "justicaGratuita": true,
+      "originario": true,
+      "segredoJustica": false,
+      "agravoSTF": false,
+      "criminal": false,
+      "criminalCorte": false,
+      "prioridade": null,
+      "codigoCompetencia": "1",
+      "numeroUnico": "03846969620243000000",
+      "numeroUnicoFormatado": "0384696-96.2024.3.00.0000",
+      "codigoClasseAnterior": null,
+      "numeroClasseAnterior": null,
+      "numeroRegistroVinculante": null,
+      "origem": {
+        "codigo": "0280",
+        "nome": "TRIBUNAL DE JUSTIÇA DO ESTADO DA BAHIA",
+        "sigla": "TJBA"
+      },
+      "tipo": "D",
+      "processoFisico": false,
+      "processoEletronico": true,
+      "preferencial": false,
+      "sigiloso": false,
+      "nivelSigilo": null,
+      "assunto": {
+        "seq": 9997,
+        "descAssunto": "Atos Administrativos",
+        "descricao": null,
+        "descricaoCompleta": "DIREITO ADMINISTRATIVO E OUTRAS MATÉRIAS DE DIREITO PÚBLICO - Atos Administrativos",
+        "areaEspecializacao": {
+          "codigoAreaEspecializacao": "1",
+          "nomeAreaEspecializacao": "Primeira Seção"
+        },
+        "segredoJustica": false
+      },
+      "pais": null,
+      "orgaoJulgador": {
+        "codigo": "T1",
+        "nome": "PRIMEIRA TURMA"
+      },
+      "orgaoProcessante": {
+        "codigo": null,
+        "nome": null
+      },
+      "formaDistribuicao": {
+        "codigo": 2,
+        "descricao": "Redistribuição"
+      },
+      "tipoDistribuicao": {
+        "codigo": 1,
+        "descricao": "automática"
+      },
+      "destino": {
+        "codigo": "02",
+        "descricao": "CONCLUSÃO AO MINISTRO RELATOR"
+      },
+      "status": {
+        "codigo": "08",
+        "descricao": "Processo arquivado",
+        "tramitando": false
+      },
+      "numerosOrigem": [],
+      "numerosConexo": null,
+      "ministroRelator": [
+        {
+          "ministro": {
+            "numMinistro": 1155,
+            "nomeMinistro": "SÉRGIO KUKINA",
+            "sexoMinistro": "M"
+          },
+          "codigoTipoMinistro": "01"
+        }
+      ],
+      "nomeLocalOrigem": "SALVADOR",
+      "numeroOrigemProtocolo": null,
+      "observacaoProcesso": null,
+      "pedidoLiminar": false,
+      "recolheuCusta": "I",
+      "processoFavorito": {
+        "numeroRegistro": null,
+        "seqProcessoFavorito": null
+      },
+      "nome": "Pet 17221",
+      "nomeCompleto": "Pet 17221/BA (2024/0384696-7)",
+      "nomeUf": "Pet 17221/BA",
+      "uf": "BA",
+      "parteAutora": "SÉRGIO RICARDO DA SILVA SANTOS",
+      "tipoParteAutora": "REQUERENTE",
+      "parteRe": "ESTADO DA BAHIA",
+      "tipoParteRe": "REQUERIDO",
+      "ministro": null,
+      "codigoAssuntoCNJ": 9997,
+      "local": {
+        "seq": 104,
+        "nomeLocal": "PROCESSO ELETRÔNICO ARQUIVADO"
+      },
+      "deslocamento": {
+        "seq": 89824973,
+        "localEntrada": {
+          "seq": 501,
+          "nomeLocal": "COORDENADORIA DE PROCESSAMENTO DE FEITOS DE DIREITO PÚBLICO"
+        },
+        "localSaida": {
+          "seq": 104,
+          "nomeLocal": "PROCESSO ELETRÔNICO ARQUIVADO"
+        },
+        "dataEntrada": "2024-10-28T22:40:02.090+0000",
+        "dataSaida": "2024-12-05T11:25:01.931+0000"
+      },
+      "fases": [
+        {
+          "seq": 243126656,
+          "dataHoraFase": "2024-12-05T08:25:01",
+          "textoFase": "Arquivado Definitivamente",
+          "descricaoSimplificada": "O processo foi encerrado e permanecerá arquivado no Tribunal. "
+        },
+        {
+          "seq": 243126653,
+          "dataHoraFase": "2024-12-05T08:25:00",
+          "textoFase": "Transitado em Julgado em 13/11/2024",
+          "descricaoSimplificada": " Processo com decisão definitiva, não cabe mais recurso"
+        },
+        {
+          "seq": 241569612,
+          "dataHoraFase": "2024-11-11T01:02:10",
+          "textoFase": "MINISTÉRIO PÚBLICO FEDERAL intimado eletronicamente da(o) Despacho / Decisão em 11/11/2024",
+          "descricaoSimplificada": "Confirmada a leitura da comunicação eletrônica para ciência de um ato do processo"
+        },
+        {
+          "seq": 241564057,
+          "dataHoraFase": "2024-11-09T01:00:44",
+          "textoFase": "PROCURADORIA-GERAL DO ESTADO DA BAHIA intimado eletronicamente da(o) Despacho / Decisão em 09/11/2024",
+          "descricaoSimplificada": "Confirmada a leitura da comunicação eletrônica para ciência de um ato do processo"
+        },
+        {
+          "seq": 240996301,
+          "dataHoraFase": "2024-10-30T05:53:35.08",
+          "textoFase": "Disponibilizada intimação eletrônica (Decisões e Vistas) ao(à) PROCURADORIA-GERAL DO ESTADO DA BAHIA ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 240986597,
+          "dataHoraFase": "2024-10-30T05:34:48.306",
+          "textoFase": "Disponibilizada intimação eletrônica (Decisões e Vistas) ao(à) MINISTÉRIO PÚBLICO FEDERAL ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 240982616,
+          "dataHoraFase": "2024-10-30T05:28:17.759",
+          "textoFase": "Publicado DESPACHO / DECISÃO em 30/10/2024 ",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 240949304,
+          "dataHoraFase": "2024-10-29T18:11:29.4",
+          "textoFase": "Disponibilizado no DJ Eletrônico - DESPACHO / DECISÃO",
+          "descricaoSimplificada": "Um documento foi disponibilizado no Diário da Justiça Eletrônico Nacional, que é o meio oficial que o Tribunal utiliza para comunicar os atos às partes e aos(às) advogados(as)."
+        },
+        {
+          "seq": 240869321,
+          "dataHoraFase": "2024-10-28T19:50:02",
+          "textoFase": "Ato ordinatório praticado - Documento encaminhado à publicação - Publicação prevista para 30/10/2024",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 240829540,
+          "dataHoraFase": "2024-10-28T19:50:01",
+          "textoFase": "Proferido despacho de mero expediente nada deferindo",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 240816790,
+          "dataHoraFase": "2024-10-28T08:15:06",
+          "textoFase": "Conclusos para decisão ao(à) Ministro(a) SÉRGIO KUKINA (Relator)",
+          "descricaoSimplificada": "O processo está no gabinete do/a Ministro/a responsável pelo caso para análise"
+        },
+        {
+          "seq": 240778533,
+          "dataHoraFase": "2024-10-28T01:50:23",
+          "textoFase": "MINISTÉRIO PÚBLICO FEDERAL intimado eletronicamente da(o) Despacho / Decisão em 28/10/2024",
+          "descricaoSimplificada": "Confirmada a leitura da comunicação eletrônica para ciência de um ato do processo"
+        },
+        {
+          "seq": 240771251,
+          "dataHoraFase": "2024-10-28T01:34:00",
+          "textoFase": "MINISTÉRIO PÚBLICO FEDERAL intimado eletronicamente da(o) Despacho / Decisão em 28/10/2024",
+          "descricaoSimplificada": "Confirmada a leitura da comunicação eletrônica para ciência de um ato do processo"
+        },
+        {
+          "seq": 240768093,
+          "dataHoraFase": "2024-10-28T01:27:24",
+          "textoFase": "PROCURADORIA-GERAL DO ESTADO DA BAHIA intimado eletronicamente da(o) Despacho / Decisão em 28/10/2024",
+          "descricaoSimplificada": "Confirmada a leitura da comunicação eletrônica para ciência de um ato do processo"
+        },
+        {
+          "seq": 240759357,
+          "dataHoraFase": "2024-10-28T01:00:51",
+          "textoFase": "PROCURADORIA-GERAL DO ESTADO DA BAHIA intimado eletronicamente da(o) Despacho / Decisão em 28/10/2024",
+          "descricaoSimplificada": "Confirmada a leitura da comunicação eletrônica para ciência de um ato do processo"
+        },
+        {
+          "seq": 240752917,
+          "dataHoraFase": "2024-10-26T01:01:15",
+          "textoFase": "PROCURADORIA-GERAL DO ESTADO DA BAHIA intimado eletronicamente da(o) Despacho / Decisão em 26/10/2024",
+          "descricaoSimplificada": "Confirmada a leitura da comunicação eletrônica para ciência de um ato do processo"
+        },
+        {
+          "seq": 240730277,
+          "dataHoraFase": "2024-10-25T17:21:00",
+          "textoFase": "Juntada de Petição de PETIÇÃO nº 950073/2024",
+          "descricaoSimplificada": "Um documento foi inserido no processo. "
+        },
+        {
+          "seq": 240728741,
+          "dataHoraFase": "2024-10-25T17:01:57.824",
+          "textoFase": "Protocolizada Petição 950073/2024 (PET - PETIÇÃO) em 25/10/2024",
+          "descricaoSimplificada": "Petição apresentada para apreciação."
+        },
+        {
+          "seq": 240477642,
+          "dataHoraFase": "2024-10-22T18:01:02",
+          "textoFase": "Juntada de Petição de PETIÇÃO nº 935783/2024",
+          "descricaoSimplificada": "Um documento foi inserido no processo. "
+        },
+        {
+          "seq": 240475595,
+          "dataHoraFase": "2024-10-22T17:41:02",
+          "textoFase": "Juntada de Petição de PETIÇÃO nº 935692/2024",
+          "descricaoSimplificada": "Um documento foi inserido no processo. "
+        },
+        {
+          "seq": 240472660,
+          "dataHoraFase": "2024-10-22T17:22:22.707",
+          "textoFase": "Protocolizada Petição 935783/2024 (PET - PETIÇÃO) em 22/10/2024",
+          "descricaoSimplificada": "Petição apresentada para apreciação."
+        },
+        {
+          "seq": 240471244,
+          "dataHoraFase": "2024-10-22T17:11:17.033",
+          "textoFase": "Protocolizada Petição 935692/2024 (PET - PETIÇÃO) em 22/10/2024",
+          "descricaoSimplificada": "Petição apresentada para apreciação."
+        },
+        {
+          "seq": 240239883,
+          "dataHoraFase": "2024-10-18T05:25:13.035",
+          "textoFase": "Disponibilizada intimação eletrônica (Decisões e Vistas) ao(à) PROCURADORIA-GERAL DO ESTADO DA BAHIA ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 240237948,
+          "dataHoraFase": "2024-10-18T05:21:46.113",
+          "textoFase": "Disponibilizada intimação eletrônica (Decisões e Vistas) ao(à) MINISTÉRIO PÚBLICO FEDERAL ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 240232160,
+          "dataHoraFase": "2024-10-18T05:11:27.88",
+          "textoFase": "Publicado DESPACHO / DECISÃO em 18/10/2024 ",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 240207855,
+          "dataHoraFase": "2024-10-17T19:43:11.941",
+          "textoFase": "Disponibilizado no DJ Eletrônico - DESPACHO / DECISÃO",
+          "descricaoSimplificada": "Um documento foi disponibilizado no Diário da Justiça Eletrônico Nacional, que é o meio oficial que o Tribunal utiliza para comunicar os atos às partes e aos(às) advogados(as)."
+        },
+        {
+          "seq": 240112757,
+          "dataHoraFase": "2024-10-16T20:10:05",
+          "textoFase": "Ato ordinatório praticado - Documento encaminhado à publicação - Publicação prevista para 18/10/2024",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 240051497,
+          "dataHoraFase": "2024-10-16T20:10:04",
+          "textoFase": "Pedido não conhecido",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 240047098,
+          "dataHoraFase": "2024-10-16T05:42:28.286",
+          "textoFase": "Disponibilizada intimação eletrônica (Decisões e Vistas) ao(à) PROCURADORIA-GERAL DO ESTADO DA BAHIA ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 240043806,
+          "dataHoraFase": "2024-10-16T05:35:29.483",
+          "textoFase": "Disponibilizada intimação eletrônica (Decisões e Vistas) ao(à) MINISTÉRIO PÚBLICO FEDERAL ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 240039350,
+          "dataHoraFase": "2024-10-16T05:26:37.428",
+          "textoFase": "Publicado DESPACHO / DECISÃO em 16/10/2024 ",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 240016432,
+          "dataHoraFase": "2024-10-15T18:21:36.506",
+          "textoFase": "Disponibilizado no DJ Eletrônico - DESPACHO / DECISÃO",
+          "descricaoSimplificada": "Um documento foi disponibilizado no Diário da Justiça Eletrônico Nacional, que é o meio oficial que o Tribunal utiliza para comunicar os atos às partes e aos(às) advogados(as)."
+        },
+        {
+          "seq": 240013102,
+          "dataHoraFase": "2024-10-15T17:56:30.378",
+          "textoFase": "Conclusos para decisão ao(à) Ministro(a) SÉRGIO KUKINA (Relator) - pela SJD",
+          "descricaoSimplificada": "O processo está no gabinete do/a Ministro/a responsável pelo caso para análise"
+        },
+        {
+          "seq": 240007184,
+          "dataHoraFase": "2024-10-15T17:00:09.24",
+          "textoFase": "Redistribuído por sorteio, em razão de deferimento de assistência judiciária gratuita, ao Ministro SÉRGIO KUKINA - PRIMEIRA TURMA",
+          "descricaoSimplificada": "O processo foi encaminhado para outro/a ministro/a que julgará o caso."
+        },
+        {
+          "seq": 239971808,
+          "dataHoraFase": "2024-10-15T10:35:01",
+          "textoFase": "Recebidos os autos eletronicamente no(a) COORDENADORIA DE PROCESSOS ORIGINÁRIOS",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 239971548,
+          "dataHoraFase": "2024-10-15T10:22:57",
+          "textoFase": "Remetidos os Autos (para distribuição) para COORDENADORIA DE PROCESSOS ORIGINÁRIOS ",
+          "descricaoSimplificada": "O processo foi encaminhado ao local indicado."
+        },
+        {
+          "seq": 239941660,
+          "dataHoraFase": "2024-10-14T21:00:13",
+          "textoFase": "Ato ordinatório praticado - Documento encaminhado à publicação - Publicação prevista para 16/10/2024",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 239779745,
+          "dataHoraFase": "2024-10-14T21:00:11",
+          "textoFase": "Concedida a Assistência Judiciária Gratuita a parte",
+          "descricaoSimplificada": "A parte foi dispensada de pagar despesas do processo."
+        },
+        {
+          "seq": 239779163,
+          "dataHoraFase": "2024-10-10T18:42:39.752",
+          "textoFase": "Conclusos para decisão ao(à) Ministro(a) PRESIDENTE DO STJ (Relator) - pela SJD",
+          "descricaoSimplificada": "O processo está no gabinete do/a Ministro/a responsável pelo caso para análise"
+        },
+        {
+          "seq": 239776326,
+          "dataHoraFase": "2024-10-10T18:00:09.167",
+          "textoFase": "Distribuído por competência exclusiva ao Ministro PRESIDENTE DO STJ",
+          "descricaoSimplificada": "O processo foi encaminhado para o/a Ministro/a que julgará o caso."
+        },
+        {
+          "seq": 239705941,
+          "dataHoraFase": "2024-10-09T18:39:13.683",
+          "textoFase": "Juntada de Certidão Certifico que consta nos autos pedido de assistência judiciária.",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 239704564,
+          "dataHoraFase": "2024-10-09T18:25:49.366",
+          "textoFase": "Protocolizada Petição (originária) em 09/10/2024",
+          "descricaoSimplificada": "Petição apresentada para apreciação."
+        }
+      ],
+      "documentos": null,
+      "peticoes": [
+        {
+          "numero": "202400950073",
+          "dataProtocolo": "2024-10-25T20:01:38.000+0000",
+          "descTipoPeticao": "PETIÇÃO",
+          "partePeticionante": "SÉRGIO RICARDO DA SILVA SANTOS ",
+          "status": "Petição processada em 25/10/2024 05:21:00"
+        },
+        {
+          "numero": "202400935692",
+          "dataProtocolo": "2024-10-22T20:10:30.000+0000",
+          "descTipoPeticao": "PETIÇÃO",
+          "partePeticionante": "SÉRGIO RICARDO DA SILVA SANTOS ",
+          "status": "Petição processada em 22/10/2024 05:41:02"
+        },
+        {
+          "numero": "202400935783",
+          "dataProtocolo": "2024-10-22T20:21:21.000+0000",
+          "descTipoPeticao": "PETIÇÃO",
+          "partePeticionante": "SÉRGIO RICARDO DA SILVA SANTOS ",
+          "status": "Petição processada em 22/10/2024 06:01:02"
+        }
+      ],
+      "partesAdvogados": [
+        {
+          "tipo": "Parte",
+          "codigoOAB": null,
+          "nome": "SÉRGIO RICARDO DA SILVA SANTOS",
+          "cpfCnpj": "19492421534",
+          "seq": 3777616,
+          "codigoTipoParte": "29",
+          "siglaTipoParte": "REQUERENTE",
+          "indicadorAutorReu": "A",
+          "seqParteProcesso": 32184285,
+          "codTipoEnte": null,
+          "descricaoTipoParte": "REQUERENTE",
+          "numeroOrdemParte": 10,
+          "descricaoTipoParteFem": "REQUERENTE",
+          "sexoParte": "M"
+        },
+        {
+          "tipo": "Advogado",
+          "codigoOAB": "BA010310",
+          "nome": "SÉRGIO RICARDO DA SILVA SANTOS",
+          "cpfCnpj": "19492421534",
+          "seq": 1148974,
+          "codigoTipoParte": null,
+          "siglaTipoParte": null,
+          "indicadorAutorReu": null,
+          "seqParteProcesso": 0,
+          "codTipoEnte": null,
+          "descricaoTipoParte": null,
+          "numeroOrdemParte": 11,
+          "descricaoTipoParteFem": null,
+          "sexoParte": null
+        },
+        {
+          "tipo": "Parte",
+          "codigoOAB": null,
+          "nome": "ESTADO DA BAHIA",
+          "cpfCnpj": "13937032000160",
+          "seq": 170151,
+          "codigoTipoParte": "30",
+          "siglaTipoParte": "REQUERIDO",
+          "indicadorAutorReu": "R",
+          "seqParteProcesso": 32184286,
+          "codTipoEnte": null,
+          "descricaoTipoParte": "REQUERIDO",
+          "numeroOrdemParte": 20,
+          "descricaoTipoParteFem": "REQUERIDA",
+          "sexoParte": null
+        }
+      ],
+      "decisoes": [
+        {
+          "seq": 278864447,
+          "numeroRegistro": "202403846967",
+          "numeroPeticao": null,
+          "tipoDespacho": null,
+          "tipoDocumento": {
+            "codigo": 6,
+            "descricao": "DESPACHO / DECISÃO                                                      "
+          },
+          "ministro": null,
+          "dataConfirmacaoPublicacao": "2024-10-30T03:00:00.000+0000",
+          "nome": "Despacho Proferido despacho de mero expediente #{tipo_de_determinacao} #{campo_livre_final} publicado(a) em 30/10/2024",
+          "seqInteiroTeor": null,
+          "julgamentoEletronico": false,
+          "indTipoEditor": null,
+          "decisao": false
+        },
+        {
+          "seq": 276642908,
+          "numeroRegistro": "202403846967",
+          "numeroPeticao": null,
+          "tipoDespacho": null,
+          "tipoDocumento": {
+            "codigo": 6,
+            "descricao": "DESPACHO / DECISÃO                                                      "
+          },
+          "ministro": null,
+          "dataConfirmacaoPublicacao": "2024-10-18T03:00:00.000+0000",
+          "nome": "Decisão Pedido não conhecido publicado(a) em 18/10/2024",
+          "seqInteiroTeor": null,
+          "julgamentoEletronico": false,
+          "indTipoEditor": null,
+          "decisao": false
+        },
+        {
+          "seq": 275777492,
+          "numeroRegistro": "202403846967",
+          "numeroPeticao": null,
+          "tipoDespacho": null,
+          "tipoDocumento": {
+            "codigo": 6,
+            "descricao": "DESPACHO / DECISÃO                                                      "
+          },
+          "ministro": null,
+          "dataConfirmacaoPublicacao": "2024-10-16T03:00:00.000+0000",
+          "nome": "Despacho Concedida a Assistência Judiciária Gratuita a parte #{campo_livre_final} publicado(a) em 16/10/2024",
+          "seqInteiroTeor": null,
+          "julgamentoEletronico": false,
+          "indTipoEditor": null,
+          "decisao": false
+        }
+      ],
+      "representativoControversia": false,
+      "repetitivo": false,
+      "valorCausa": null
+    }
+  ]
+}
