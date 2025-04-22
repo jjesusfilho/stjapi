@@ -1,10 +1,10 @@
 --Validar campos Json, identificando  qtde itens por processo e datatype
 
 /*
-Dúvida:
-1. Ao agregar os assuntos do processo numa única linha, ver como será apresentado quando este for sigiloso
-2. Identificar o que pode ser obrigatório ou não. Aqueles que identifiquei Nulo, já informei no script
-3. Quando campo nulo, não identifiquei datatype, categorizei como Varchar(10) e indiquei "--*****" no scritp
+Dï¿½vida:
+1. Ao agregar os assuntos do processo numa ï¿½nica linha, ver como serï¿½ apresentado quando este for sigiloso
+2. Identificar o que pode ser obrigatï¿½rio ou nï¿½o. Aqueles que identifiquei Nulo, jï¿½ informei no script
+3. Quando campo nulo, nï¿½o identifiquei datatype, categorizei como Varchar(10) e indiquei "--*****" no scritp
 */
 
 CREATE TABLE Processo (
@@ -113,7 +113,7 @@ CREATE TABLE Partes (
     nome VARCHAR(255) NOT NULL,
     cpfCnpj VARCHAR(20) UNIQUE,
     codigo INT PRIMARY KEY,
-	seqParteProcesso BIGINT, --***** SÓ APARECE QUANDO TIPO PARTE
+	seqParteProcesso BIGINT, --***** Sï¿½ APARECE QUANDO TIPO PARTE
 	tipo VARCHAR(10), 
 	codTipoEnte VARCHAR(10) NULL,
 	descricaoTipoParte VARCHAR(255) NULL,
@@ -132,7 +132,7 @@ CREATE TABLE Fases (
     numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
 	dataHoraFase DATETIME,
     textoFase VARCHAR(MAX),
-    descricaoSimplificada VARCHAR(MAX) --TEM VALOR BRANCO AO INVÉS DE NULO
+    descricaoSimplificada VARCHAR(MAX) --TEM VALOR BRANCO AO INVï¿½S DE NULO
 );
 
 CREATE TABLE Local (
@@ -145,8 +145,8 @@ CREATE TABLE LocalProcesso (
 	codigoLocal INT NOT NULL
 );
 
-CREATE TABLE Deslocamento (
-    codigo BIGINT PRIMARY KEY, -- Identificador único do deslocamento
+CREATE TABLE Deslocamento (--- Aqui nÃ£o foram criadas duas tabelas.
+    codigo BIGINT PRIMARY KEY, -- Identificador ï¿½nico do deslocamento
     numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
 	localEntradaSeq INT FOREIGN KEY REFERENCES Local(codigoLocal),
     localSaidaSeq INT FOREIGN KEY REFERENCES Local(codigoLocal),
@@ -174,7 +174,7 @@ CREATE TABLE MinistroRelator (
 
 CREATE TABLE NumerosOrigemProcesso (
     numeroRegistro BIGINT IDENTITY (1,1) FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	numerosOrigem INT NOT NULL--DataType vai depender da formatação
+	numerosOrigem INT NOT NULL---DataType vai depender da formataï¿½ï¿½o Obs. Se mantiver como int, perdemos os zeros iniciais.
 	);
 
 CREATE TABLE Classe (
@@ -198,7 +198,7 @@ CREATE TABLE Destino (
 CREATE TABLE AssuntoProcesso (
     numeroRegistro BIGINT IDENTITY (1,1) FOREIGN KEY REFERENCES Processo(numeroRegistro),
 	codigo INT NOT NULL,
-	codigoAreaEspecializacao INT NOT NULL --se codigo assunto NÃO se repetir por area ELIMINAR daqui
+	codigoAreaEspecializacao INT NOT NULL --se codigo assunto Nï¿½O se repetir por area ELIMINAR daqui
 );
 
 CREATE TABLE Assunto (
@@ -208,11 +208,11 @@ CREATE TABLE Assunto (
 	descricaoCompleta VARCHAR(MAX) NOT NULL,
     codigoAreaEspecializacao INT,
 	nomeAreaEspecializacao VARCHAR(50) NOT NULL,
-	segredoJustica BIT NOT NULL --Há assuntos como segredo justiça
+	segredoJustica BIT NOT NULL --Hï¿½ assuntos como segredo justiï¿½a
 	);
 	
-CREATE TABLE Origem (
-    codigo VARCHAR(10) PRIMARY KEY,
+CREATE TABLE Origem (--- Falta numeroRegistro?
+    codigo VARCHAR(10) PRIMARY KEY, --- Adicionar numeroRegistro
     nome VARCHAR(255) NOT NULL,
     sigla VARCHAR(10) NOT NULL
 );
@@ -243,7 +243,7 @@ CREATE TABLE formaDistribuicaoProcesso (
 	codigo INT NOT NULL
 );
 
-CREATE TABLE formaDistribuicao (
+CREATE TABLE formaDistribuicao ( 
     codigo INT PRIMARY KEY,
     descricao VARCHAR(255) NOT NULL
 );
@@ -253,10 +253,12 @@ CREATE TABLE tipoDistribuicaoProcesso (
 	codigo INT NOT NULL
 );
 
-CREATE TABLE tipoDistribuicao (
+CREATE TABLE tipoDistribuicao ( ---HÃ¡ necessidade de criar duas tabelas?
     codigo INT PRIMARY KEY,
     descricao VARCHAR(255) NOT NULL
 );
+
+
 
 
 

@@ -1,7 +1,7 @@
 import pandas as pd
 import json
 import numpy as np
-from time import strftime, gmtime
+from datetime import datetime
 from typing import Optional
 
 class STJLer:
@@ -30,6 +30,11 @@ class STJLer:
             else:
                 return default
         return dictionary if dictionary != {} else default
+    
+    def add_fk_table(self, column_name, column, default = None):
+        pdf = pd.DataFrame({column_name: column})
+        pdf['numeroRegistro'] = self.process_data['numeroRegistro']
+        return pdf
 
     # Function to create DataFrames for each table
     def create_dataframes(self):
@@ -40,10 +45,12 @@ class STJLer:
             data = json.load(file)
         
         process_data = data["list"][0]
+        # Store the process_data as an instance attribute so it can be accessed by other methods
+        self.process_data = process_data
         
         data_situacao1 = ''.join(x for x in filepath.split('_time_')[1] if x.isnumeric())
 
-        data_situacao = strftime('%Y-%m-%d', gmtime(int(data_situacao1)))
+        data_situacao = datetime.fromtimestamp(int(data_situacao1)).strftime('%Y-%m-%d')
         
         dataframes = {}
 
@@ -105,10 +112,9 @@ class STJLer:
         }
         
         dataframes['Processo'] = pd.DataFrame([processo_data])
+                
         
-        # Adding the additional tables from the standalone function
-        
-        # Decisao Table
+        # Tabela Decisao
         decisoes = self.safe_get(process_data, 'decisoes', default=[])
         if decisoes:
             decisao_data = []
@@ -126,24 +132,48 @@ class STJLer:
             if decisao_data:
                 dataframes['Decisao'] = pd.DataFrame(decisao_data)
 
-        # Fases Table
-        fases = self.safe_get(process_data, 'fases', default=[])
-        if fases:
-            fases_data = []
-            for fase in fases:
-                fase_entry = {
-                    'codigo': self.safe_get(fase, 'seq'),
-                    'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
-                    'dataHoraFase': self.safe_get(fase, 'dataHoraFase'),
-                    'textoFase': self.safe_get(fase, 'textoFase'),
-                    'descricaoSimplificada': self.safe_get(fase, 'descricaoSimplificada')
-                }
-                fases_data.append({k: v for k, v in fase_entry.items() if v is not None})
+        # Tabela TipoDocumentoDecisao 
+        if decisoes:
+            tipo_documento_data = []
             
-            if fases_data:
-                dataframes['Fases'] = pd.DataFrame(fases_data)
+            for tp in decisoes:
+                tipo_documento = {
+                    'codigo': self.safe_get(tp, 'tipoDocumento','codigo'),
+                    'descricao': self.safe_get(tp,'tipoDocumento','descricao')
+                }
+            
+                tipo_documento_data.append({k: v for k, v in tipo_documento.items() if v is not None})
 
-        # Partes Table
+            if tipo_documento_data:
+                dataframes['tipoDocumentoDecisao'] = pd.DataFrame(tipo_documento_data)
+
+        # Tabela ProcessoDecisao
+        if decisoes and 'Decisao' in dataframes:
+            
+            dataframes['ProcessoDecisao'] =  self.add_fk_table('codigo', dataframes['Decisao']['codigo'])
+
+        ## Tabela Peticoes
+        peticoes = self.safe_get(process_data, 'peticoes', default = [])
+        
+        if peticoes:
+            peticoes_data = []
+            for peticao in peticoes:
+                peticao_entry  = {
+                    'numero': self.safe_get(peticao, 'numero'),
+                    'dataProtocolo': self.safe_get(peticao,'dataProtocolo'),
+                    'descTipoPeticao': self.safe_get(peticao, 'descTipoPeticao'),
+                    'partePeticionante': self.safe_get(peticao, 'partePeticionante'),
+                    'status': self.safe_get(peticao, 'status')
+                }
+                peticoes_data.append({k: v for k, v in peticao_entry.items() if v is not None})     
+            if peticoes_data:
+                dataframes['Peticoes'] = pd.DataFrame(peticoes_data)
+        
+        # Tabela ProcessoPeticoes
+        if peticoes and 'Peticoes' in dataframes:
+            dataframes['ProcessoPeticao'] = self.add_fk_table('numero', dataframes['Peticoes']['numero'])
+
+        # Tabela Partes
         partes = self.safe_get(process_data, 'partesAdvogados', default=[])
         if partes:
             partes_data = []
@@ -166,6 +196,90 @@ class STJLer:
             if partes_data:
                 dataframes['Partes'] = pd.DataFrame(partes_data)
 
+        if partes and 'Partes' in dataframes:
+           dataframes['ProcessoPartes'] = self.add_fk_table('codigo', dataframes['Partes']['codigo'])
+            
+        # Tabela Fases
+        fases = self.safe_get(process_data, 'fases', default=[])
+        if fases:
+            fases_data = []
+            for fase in fases:
+                fase_entry = {
+                    'codigo': self.safe_get(fase, 'seq'),
+                    'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
+                    'dataHoraFase': self.safe_get(fase, 'dataHoraFase'),
+                    'textoFase': self.safe_get(fase, 'textoFase'),
+                    'descricaoSimplificada': self.safe_get(fase, 'descricaoSimplificada')
+                }
+                fases_data.append({k: v for k, v in fase_entry.items() if v is not None})
+            
+            if fases_data:
+                dataframes['Fases'] = pd.DataFrame(fases_data)
+
+        # Tabela Local
+        local = self.safe_get(process_data, 'local', default = [])
+        if local:
+            local_data = {
+                "codigoLocal": self.safe_get(local,'seq'),
+                "numeroLocal": self.safe_get(local, 'numeroLocal')
+            }
+            dataframes['Local'] = pd.DataFrame([{k: v for k, v in local_data.items() if v is not None}])
+
+        # Tabela LocalProcesso
+        if local and 'Local' in dataframes:
+           dataframes['LocalProcesso'] = self.add_fk_table('codigoLocal', dataframes['Local']['codigoLocal'])
+
+        # Tabela Deslocamento
+        deslocamento = self.safe_get(process_data, "deslocamento", default = [])
+        
+        if deslocamento:
+            deslocamento_data = {
+                "codigo": self.safe_get(deslocamento, 'seq'),
+                "numeroRegistro": self.safe_get(process_data,'numeroRegistro'),
+                "localEntradaSeq": self.safe_get(deslocamento,"localEntrada","seq"),
+                "localSaidaSeq": self.safe_get(deslocamento, "localSaida","seq"),
+                "dataEntrada": self.safe_get(deslocamento, "dataEntrada"),
+                "dataSaida": self.safe_get(deslocamento,"dataSaida")
+            }
+            dataframes['Deslocamento'] = pd.DataFrame([{k: v for k, v in deslocamento_data.items() if v is not None}])
+        
+        # Tabela ProcessoFavorito
+        
+        processoFavorito = self.safe_get(process_data, 'processoFavorito')
+        
+        if processoFavorito: 
+            processoFavorito_data = {
+                'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
+                'numeroRegistroFavorito': self.safe_get(processoFavorito, 'numeroRegistro'),
+                'seqProcessoFavorito': self.safe_get(processoFavorito,'seqProcessoFavorito')
+            }
+            dataframes['ProcessoFavorito'] = pd.DataFrame([{k: v for k, v in processoFavorito_data.items() if v is not None}])
+
+         # Tabela MinistroRelator
+        ministroRelator = self.safe_get(process_data, 'ministroRelator', default=[])
+        
+        if ministroRelator:
+            ministro_relator_data = []
+            for relator in ministroRelator:
+                ministro_entry = {
+                    'numMinistro': self.safe_get(relator, 'ministro','numMinistro'),
+                    'nomeMinistro': self.safe_get(relator,'ministro', 'nomeMinistro'),
+                    'sexoMinistro': self.safe_get(relator,"ministro", 'sexoMinistro'),
+                    'codigoTipoMinistro': self.safe_get(relator, 'codigoTipoMinistro')
+                }
+                
+                ministro_relator_data.append({k: v for k, v in ministro_entry.items() if v is not None})
+            
+            if ministro_relator_data:
+                dataframes['MinistroRelator'] = pd.DataFrame(ministro_relator_data)
+
+        ## Tabela MinistroRelatorProcesso
+        
+        if ministroRelator and 'MinistroRelator' in dataframes:
+            
+           dataframes['MinistroRelatorProcesso'] = self.add_fk_table('numMinistro', dataframes['MinistroRelator']['numMinistro'])
+
+
         # Classe Table
         classe = self.safe_get(process_data, 'classe')
         if classe:
@@ -187,7 +301,8 @@ class STJLer:
             }
             dataframes['Status'] = pd.DataFrame([{k: v for k, v in status_data.items() if v is not None}])
 
-        # Números de Origem
+        # Tabela NumerosOrigemProcesso
+        
         numeros_origem = self.safe_get(process_data, 'numerosOrigem', default=[])
         if numeros_origem:
             numeros_origem_data = []
@@ -200,5 +315,138 @@ class STJLer:
             
             if numeros_origem_data:
                 dataframes['NumerosOrigemProcesso'] = pd.DataFrame(numeros_origem_data)
+        
+        # Tabela Origem   
+        origem = self.safe_get(process_data, 'origem')
+        
+        if origem:
+            origem_data = {
+                'codigo': self.safe_get(origem, 'codigo'),
+                'nome': self.safe_get(origem, 'nome'),
+                'sigla': self.safe_get(origem, 'sigla')
+            }
+            dataframes['Origem'] = pd.DataFrame([{k: v for k, v in origem_data.items() if v is not None}])
+
+        # Tabela Destino
+        destino = self.safe_get(process_data, 'destino')
+        
+        if destino:
+            destino_data = {
+                'codigo': self.safe_get(destino, 'codigo'),
+                'descricao': self.safe_get(destino, 'descricao')
+            }
+            dataframes['Destino'] = pd.DataFrame([{k: v for k, v in destino_data.items() if v is not None}])
+
+
+        # Tabela Assunto
+        assunto = self.safe_get(process_data, 'assunto')
+        
+        if assunto:
+            assunto_data = {
+                'codigo': self.safe_get(assunto, 'codigo'),
+                'descAssunto': self.safe_get(assunto, 'descAssunto'),
+                'descricao': self.safe_get(assunto, 'descricao'),
+                'descricaoCompleta': self.safe_get(assunto, 'descricaoCompleta'),
+                'codigoAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','codigoAreaEspecializacao'),
+                'nomeAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','nomeAreaEspecializacao'),
+                'segredoJustica': self.safe_get(assunto, 'segredoJustica')
+            }
+            dataframes['Assunto'] = pd.DataFrame([{k: v for k, v in assunto_data.items() if v is not None}])
+
+        if assunto:
+            assunto_processo_data = {
+                'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
+                'codigo': self.safe_get(assunto, 'codigo'),
+                'codigoAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','codigoAreaEspecializacao'),
+            }
+            dataframes['AssuntoProcesso'] = pd.DataFrame([{k: v for k, v in assunto_processo_data.items() if v is not None}])
+
+        
+        # Tabela OrgaoJulgador
+        orgaoJulgador = self.safe_get(process_data, 'orgaoJulgador')
+        
+        if orgaoJulgador:
+            orgao_julgador_data = {
+                'codigo': self.safe_get(orgaoJulgador, 'codigo'),
+                'nome': self.safe_get(orgaoJulgador, 'nome')
+              
+            }
+            dataframes['OrgaoJulgador'] = pd.DataFrame([{k: v for k, v in orgao_julgador_data.items() if v is not None}])
+
+        ## Tabela OrgaoJulgadorProcesso
+        
+        if orgaoJulgador:
+             
+            orgao_julgador_processo_data = {
+                'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
+                'codigo': self.safe_get(orgaoJulgador, 'codigo')            
+            }
+            dataframes['OrgaoJulgadorProcesso'] = pd.DataFrame([{k: v for k, v in orgao_julgador_processo_data.items() if v is not None}])
+
+        # Tabela OrgaoProcessante
+        
+        # Tabela OrgaoProcessante
+        orgaoProcesante = self.safe_get(process_data, 'orgaoProcesante')
+        
+        if orgaoProcesante:
+            orgao_Procesante_data = {
+                'codigo': self.safe_get(orgaoProcesante, 'codigo'),
+                'nome': self.safe_get(orgaoProcesante, 'nome')
+              
+            }
+            dataframes['OrgaoProcesante'] = pd.DataFrame([{k: v for k, v in orgao_Procesante_data.items() if v is not None}])
+
+        ## Tabela OrgaoProcesanteProcesso
+        
+        if orgaoProcesante:
+             
+            orgao_procesante_processo_data = {
+                'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
+                'codigo': self.safe_get(orgaoProcesante, 'codigo')            
+            }
+            dataframes['OrgaoProcesanteProcesso'] = pd.DataFrame([{k: v for k, v in orgao_procesante_processo_data.items() if v is not None}])
+
+        # Tabela TipoDistribuicao
+        tipoDistribuicao = self.safe_get(process_data, 'tipoDistribuicao')
+        
+        if tipoDistribuicao:
+            tipo_distribuicao_data = {
+                'codigo': self.safe_get(tipoDistribuicao, 'codigo'),
+                'descricao': self.safe_get(tipoDistribuicao, 'descricao')
+              
+            }
+            dataframes['TipoDistribuicao'] = pd.DataFrame([{k: v for k, v in tipo_distribuicao_data.items() if v is not None}])
+
+        ## Tabela TipoDistribuicaoProcesso
+        
+        if tipoDistribuicao:
+             
+            tipo_distribuicao_processo_data = {
+                'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
+                'codigo': self.safe_get(tipoDistribuicao, 'codigo')            
+            }
+            dataframes['TipoDistribuicaoProcesso'] = pd.DataFrame([{k: v for k, v in tipo_distribuicao_processo_data.items() if v is not None}])
+
+
+        # Tabela formaDistribuicao
+        formaDistribuicao = self.safe_get(process_data, 'formaDistribuicao')
+        
+        if formaDistribuicao:
+            forma_distribuicao_data = {
+                'codigo': self.safe_get(formaDistribuicao, 'codigo'),
+                'descricao': self.safe_get(formaDistribuicao, 'descricao')
+              
+            }
+            dataframes['FormaDistribuicao'] = pd.DataFrame([{k: v for k, v in forma_distribuicao_data.items() if v is not None}])
+
+        ## Tabela formaDistribuicaoProcesso
+        
+        if formaDistribuicao:
+             
+            forma_distribuicao_processo_data = {
+                'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
+                'codigo': self.safe_get(formaDistribuicao, 'codigo')            
+            }
+            dataframes['FormaDistribuicaoProcesso'] = pd.DataFrame([{k: v for k, v in forma_distribuicao_processo_data.items() if v is not None}])
 
         return dataframes

@@ -1,0 +1,468 @@
+{
+  "sucesso": true,
+  "mensagem": "processo",
+  "codigoErro": 0,
+  "list": [
+    {
+      "numeroRegistro": "202500746297",
+      "numeroRegistroFormatado": "2025/0074629-7",
+      "classe": {
+        "codigo": "31",
+        "sigla": "RHC",
+        "codigoClasseEmbargada": null,
+        "nomeClasse": "RECURSO EM HABEAS CORPUS"
+      },
+      "numeroProcessoClasse": 212464,
+      "qtdVolumes": 1,
+      "qtdApensos": 0,
+      "dataRegistroProtocolo": "2025-03-07",
+      "dataAutuacao": "2025-03-07",
+      "justicaGratuita": false,
+      "originario": false,
+      "segredoJustica": false,
+      "agravoSTF": false,
+      "criminal": true,
+      "criminalCorte": false,
+      "prioridade": null,
+      "codigoCompetencia": "1",
+      "numeroUnico": "03852346320258130000",
+      "numeroUnicoFormatado": "0385234-63.2025.8.13.0000",
+      "codigoClasseAnterior": null,
+      "numeroClasseAnterior": null,
+      "numeroRegistroVinculante": null,
+      "origem": {
+        "codigo": "0440",
+        "nome": "TRIBUNAL DE JUSTIÇA DO ESTADO DE MINAS GERAIS",
+        "sigla": "TJMG"
+      },
+      "tipo": "D",
+      "processoFisico": false,
+      "processoEletronico": true,
+      "preferencial": false,
+      "sigiloso": false,
+      "nivelSigilo": null,
+      "assunto": {
+        "seq": 3372,
+        "descAssunto": "Homicídio Qualificado",
+        "descricao": null,
+        "descricaoCompleta": "DIREITO PENAL - Crimes contra a vida - Homicídio Qualificado",
+        "areaEspecializacao": {
+          "codigoAreaEspecializacao": "3",
+          "nomeAreaEspecializacao": "Terceira Seção"
+        },
+        "segredoJustica": false
+      },
+      "pais": null,
+      "orgaoJulgador": {
+        "codigo": "T5",
+        "nome": "QUINTA TURMA"
+      },
+      "orgaoProcessante": {
+        "codigo": null,
+        "nome": null
+      },
+      "formaDistribuicao": {
+        "codigo": 1,
+        "descricao": "Distribuição"
+      },
+      "tipoDistribuicao": {
+        "codigo": 1,
+        "descricao": "automática"
+      },
+      "destino": {
+        "codigo": "02",
+        "descricao": "CONCLUSÃO AO MINISTRO RELATOR"
+      },
+      "status": {
+        "codigo": "06",
+        "descricao": "Distribuído",
+        "tramitando": false
+      },
+      "numerosOrigem": [],
+      "numerosConexo": null,
+      "ministroRelator": [
+        {
+          "ministro": {
+            "numMinistro": 1170,
+            "nomeMinistro": "REYNALDO SOARES DA FONSECA",
+            "sexoMinistro": "M"
+          },
+          "codigoTipoMinistro": "01"
+        }
+      ],
+      "nomeLocalOrigem": "BELO HORIZONTE",
+      "numeroOrigemProtocolo": "10000250385234001",
+      "observacaoProcesso": null,
+      "pedidoLiminar": false,
+      "recolheuCusta": null,
+      "processoFavorito": {
+        "numeroRegistro": null,
+        "seqProcessoFavorito": null
+      },
+      "nome": "RHC 212464",
+      "nomeCompleto": "RHC 212464/MG (2025/0074629-7)",
+      "nomeUf": "RHC 212464/MG",
+      "uf": "MG",
+      "parteAutora": "MAGDA JULIANA FIGUEIREDO SANTOS",
+      "tipoParteAutora": "RECORRENTE",
+      "parteRe": "MINISTÉRIO PÚBLICO DO ESTADO DE MINAS GERAIS",
+      "tipoParteRe": "RECORRIDO",
+      "ministro": null,
+      "codigoAssuntoCNJ": 3372,
+      "local": {
+        "seq": 503,
+        "nomeLocal": "COORDENADORIA DE PROCESSAMENTO DE FEITOS DE DIREITO PENAL"
+      },
+      "deslocamento": {
+        "seq": 92577039,
+        "localEntrada": {
+          "seq": 503,
+          "nomeLocal": "COORDENADORIA DE PROCESSAMENTO DE FEITOS DE DIREITO PENAL"
+        },
+        "localSaida": null,
+        "dataEntrada": "2025-04-08T16:00:02.211+0000",
+        "dataSaida": null
+      },
+      "fases": [
+        {
+          "seq": 249973907,
+          "dataHoraFase": "2025-04-10T12:41:00",
+          "textoFase": "Juntada de Petição de CIÊNCIA PELO MPF nº 317548/2025",
+          "descricaoSimplificada": "Um documento foi inserido no processo. "
+        },
+        {
+          "seq": 249973398,
+          "dataHoraFase": "2025-04-10T12:29:31.992",
+          "textoFase": "Protocolizada Petição 317548/2025 (CieMPF - CIÊNCIA PELO MPF) em 10/04/2025",
+          "descricaoSimplificada": "Petição apresentada para apreciação."
+        },
+        {
+          "seq": 249953619,
+          "dataHoraFase": "2025-04-10T06:16:39.251",
+          "textoFase": "Disponibilizada intimação eletrônica (Acórdãos) ao(à) DEFENSORIA PÚBLICA DO ESTADO DE MINAS GERAIS ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 249953561,
+          "dataHoraFase": "2025-04-10T06:16:32.945",
+          "textoFase": "Disponibilizada intimação eletrônica (Acórdãos) ao(à) MINISTÉRIO PÚBLICO FEDERAL ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 249953416,
+          "dataHoraFase": "2025-04-10T06:16:16.096",
+          "textoFase": "Disponibilizada intimação eletrônica (Acórdãos) ao(à) MINISTÉRIO PÚBLICO DO ESTADO DE MINAS GERAIS ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 249927295,
+          "dataHoraFase": "2025-04-10T00:48:40.076",
+          "textoFase": "Publicado EMENTA / ACORDÃO em 10/04/2025 Petição Nº 256689/2025 - AgRg",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 249845253,
+          "dataHoraFase": "2025-04-09T01:02:44",
+          "textoFase": "Disponibilizado no DJ Eletrônico - DJEN (CNJ)",
+          "descricaoSimplificada": "Um documento foi disponibilizado no Diário da Justiça Eletrônico Nacional, que é o meio oficial que o Tribunal utiliza para comunicar os atos às partes e aos(às) advogados(as)."
+        },
+        {
+          "seq": 249790238,
+          "dataHoraFase": "2025-04-08T13:00:02",
+          "textoFase": "Ato ordinatório praticado - Acórdão encaminhado à publicação - Petição Nº 2025/0256689 - AgRg no RHC 212464 - Publicação prevista para 10/04/2025",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 249414933,
+          "dataHoraFase": "2025-04-02T09:19:19.268",
+          "textoFase": "Recebidos os autos no(a) QUINTA TURMA ",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 249421944,
+          "dataHoraFase": "2025-04-01T16:32:02",
+          "textoFase": "Proclamação Final de Julgamento: \"A Turma, por unanimidade, negou provimento ao agravo regimental.\"\r\n Petição Nº 256689/2025 - AgRg no RHC 212464",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 249357440,
+          "dataHoraFase": "2025-04-01T16:32:02",
+          "textoFase": "Conhecido o recurso de MAGDA JULIANA FIGUEIREDO SANTOS e não-provido,por unanimidade, pela QUINTA TURMA Petição Nº 256689/2025 - AgRg no RHC 212464",
+          "descricaoSimplificada": "O recurso foi julgado, mas não foi aceito."
+        },
+        {
+          "seq": 249136649,
+          "dataHoraFase": "2025-03-28T14:29:33",
+          "textoFase": "Inclusão em mesa para julgamento - QUINTA TURMA - sessão do dia 01/04/2025 14:00:00 - Petição N° 202500256689 - AgRg no RHC 212464/MG",
+          "descricaoSimplificada": " O processo foi liberado para julgamento, que poderá ocorrer em qualquer data, com ou sem  aviso prévio."
+        },
+        {
+          "seq": 248954627,
+          "dataHoraFase": "2025-03-26T21:12:43",
+          "textoFase": "DEFENSORIA PÚBLICA DO ESTADO DE MINAS GERAIS intimado eletronicamente da(o) Decisões e Vistas em 24/03/2025",
+          "descricaoSimplificada": "Confirmada a leitura da comunicação eletrônica para ciência de um ato do processo"
+        },
+        {
+          "seq": 248954105,
+          "dataHoraFase": "2025-03-26T21:10:55",
+          "textoFase": "MINISTÉRIO PÚBLICO DO ESTADO DE MINAS GERAIS intimado eletronicamente da(o) Decisões e Vistas em 24/03/2025",
+          "descricaoSimplificada": "Confirmada a leitura da comunicação eletrônica para ciência de um ato do processo"
+        },
+        {
+          "seq": 248935975,
+          "dataHoraFase": "2025-03-26T17:15:25",
+          "textoFase": "Conclusos para decisão ao(à) Ministro(a) REYNALDO SOARES DA FONSECA (Relator)",
+          "descricaoSimplificada": "O processo está no gabinete do/a Ministro/a responsável pelo caso para análise"
+        },
+        {
+          "seq": 248932786,
+          "dataHoraFase": "2025-03-26T16:36:00",
+          "textoFase": "Juntada de Petição de AGRAVO REGIMENTAL nº 256689/2025",
+          "descricaoSimplificada": "Um documento foi inserido no processo. "
+        },
+        {
+          "seq": 248930173,
+          "dataHoraFase": "2025-03-26T16:11:13.104",
+          "textoFase": "Protocolizada Petição 256689/2025 (AgRg - AGRAVO REGIMENTAL) em 26/03/2025",
+          "descricaoSimplificada": "Petição apresentada para apreciação."
+        },
+        {
+          "seq": 248135462,
+          "dataHoraFase": "2025-03-14T20:36:00",
+          "textoFase": "Juntada de Petição de CIÊNCIA PELO MPF nº 216705/2025",
+          "descricaoSimplificada": "Um documento foi inserido no processo. "
+        },
+        {
+          "seq": 248134915,
+          "dataHoraFase": "2025-03-14T20:11:46.74",
+          "textoFase": "Protocolizada Petição 216705/2025 (CieMPF - CIÊNCIA PELO MPF) em 14/03/2025",
+          "descricaoSimplificada": "Petição apresentada para apreciação."
+        },
+        {
+          "seq": 247981003,
+          "dataHoraFase": "2025-03-13T06:03:28.899",
+          "textoFase": "Disponibilizada intimação eletrônica (Decisões e Vistas) ao(à) MINISTÉRIO PÚBLICO FEDERAL ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 247980265,
+          "dataHoraFase": "2025-03-13T06:02:04.442",
+          "textoFase": "Disponibilizada intimação eletrônica (Decisões e Vistas) ao(à) DEFENSORIA PÚBLICA DO ESTADO DE MINAS GERAIS ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 247979876,
+          "dataHoraFase": "2025-03-13T06:01:19.499",
+          "textoFase": "Disponibilizada intimação eletrônica (Decisões e Vistas) ao(à) MINISTÉRIO PÚBLICO DO ESTADO DE MINAS GERAIS ",
+          "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
+        },
+        {
+          "seq": 247968045,
+          "dataHoraFase": "2025-03-13T00:42:24.892",
+          "textoFase": "Publicado DESPACHO / DECISÃO em 13/03/2025 ",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 247885357,
+          "dataHoraFase": "2025-03-12T01:46:11",
+          "textoFase": "Disponibilizado no DJ Eletrônico - DJEN (CNJ)",
+          "descricaoSimplificada": "Um documento foi disponibilizado no Diário da Justiça Eletrônico Nacional, que é o meio oficial que o Tribunal utiliza para comunicar os atos às partes e aos(às) advogados(as)."
+        },
+        {
+          "seq": 247775774,
+          "dataHoraFase": "2025-03-10T19:50:01",
+          "textoFase": "Ato ordinatório praticado - Documento encaminhado à publicação - Publicação prevista para 13/03/2025",
+          "descricaoSimplificada": " "
+        },
+        {
+          "seq": 247729217,
+          "dataHoraFase": "2025-03-10T19:50:00",
+          "textoFase": "Conhecido o recurso de MAGDA JULIANA FIGUEIREDO SANTOS (PRESO) e não-provido",
+          "descricaoSimplificada": "O recurso foi julgado, mas não foi aceito."
+        },
+        {
+          "seq": 247606340,
+          "dataHoraFase": "2025-03-07T12:26:19.345",
+          "textoFase": "Conclusos para decisão ao(à) Ministro(a) REYNALDO SOARES DA FONSECA (Relator) - pela SJD",
+          "descricaoSimplificada": "O processo está no gabinete do/a Ministro/a responsável pelo caso para análise"
+        },
+        {
+          "seq": 247605164,
+          "dataHoraFase": "2025-03-07T12:00:09.793",
+          "textoFase": "Distribuído por sorteio ao Ministro REYNALDO SOARES DA FONSECA - QUINTA TURMA",
+          "descricaoSimplificada": "O processo foi encaminhado para o/a Ministro/a que julgará o caso."
+        },
+        {
+          "seq": 247596123,
+          "dataHoraFase": "2025-03-07T08:51:30.839",
+          "textoFase": "Recebidos os autos eletronicamente no(a) SUPERIOR TRIBUNAL DE JUSTIÇA do TRIBUNAL DE JUSTIÇA DO ESTADO DE MINAS GERAIS",
+          "descricaoSimplificada": " "
+        }
+      ],
+      "documentos": null,
+      "peticoes": [
+        {
+          "numero": "202500317548",
+          "dataProtocolo": "2025-04-10T15:28:25.000+0000",
+          "descTipoPeticao": "CIÊNCIA PELO MPF",
+          "partePeticionante": "MPF",
+          "status": "Petição processada em 10/04/2025 12:41:00"
+        },
+        {
+          "numero": "202500256689",
+          "dataProtocolo": "2025-03-26T19:09:46.000+0000",
+          "descTipoPeticao": "AGRAVO REGIMENTAL",
+          "partePeticionante": "MAGDA JULIANA FIGUEIREDO SANTOS",
+          "status": "Petição processada em 26/03/2025 04:36:00"
+        },
+        {
+          "numero": "202500216705",
+          "dataProtocolo": "2025-03-14T23:09:47.000+0000",
+          "descTipoPeticao": "CIÊNCIA PELO MPF",
+          "partePeticionante": "MPF",
+          "status": "Petição processada em 14/03/2025 08:36:00"
+        }
+      ],
+      "partesAdvogados": [
+        {
+          "siglaTipoParte": "RECORRENTE",
+          "indicadorAutorReu": "A",
+          "seqParteProcesso": 33012566,
+          "codigoTipoParte": "25",
+          "tipo": "Parte",
+          "codigoOAB": null,
+          "nome": "MAGDA JULIANA FIGUEIREDO SANTOS",
+          "cpfCnpj": "08148407606",
+          "seq": 11470663,
+          "codTipoEnte": null,
+          "descricaoTipoParte": "RECORRENTE",
+          "numeroOrdemParte": 10,
+          "descricaoTipoParteFem": "RECORRENTE",
+          "sexoParte": "F"
+        },
+        {
+          "siglaTipoParte": null,
+          "indicadorAutorReu": null,
+          "seqParteProcesso": 0,
+          "codigoTipoParte": null,
+          "tipo": "Advogado",
+          "codigoOAB": null,
+          "nome": "DEFENSORIA PÚBLICA DO ESTADO DE MINAS GERAIS",
+          "cpfCnpj": "05599094000180",
+          "seq": 1236881,
+          "codTipoEnte": null,
+          "descricaoTipoParte": null,
+          "numeroOrdemParte": 11,
+          "descricaoTipoParteFem": null,
+          "sexoParte": null
+        },
+        {
+          "siglaTipoParte": "RECORRIDO",
+          "indicadorAutorReu": "R",
+          "seqParteProcesso": 33012568,
+          "codigoTipoParte": "26",
+          "tipo": "Parte",
+          "codigoOAB": null,
+          "nome": "MINISTÉRIO PÚBLICO DO ESTADO DE MINAS GERAIS",
+          "cpfCnpj": "20971057000145",
+          "seq": 170206,
+          "codTipoEnte": "5",
+          "descricaoTipoParte": "RECORRIDO",
+          "numeroOrdemParte": 20,
+          "descricaoTipoParteFem": "RECORRIDA",
+          "sexoParte": null
+        }
+      ],
+      "decisoes": [
+        {
+          "seq": 306755721,
+          "numeroRegistro": "202500746297",
+          "numeroPeticao": "202500256689",
+          "tipoDespacho": null,
+          "tipoDocumento": {
+            "codigo": 999,
+            "descricao": "EMENTA / ACORDÃO                                                        "
+          },
+          "ministro": null,
+          "dataConfirmacaoPublicacao": "2025-04-10T03:00:00.000+0000",
+          "nome": "AgRg no RHC",
+          "seqInteiroTeor": 2634861,
+          "julgamentoEletronico": false,
+          "indTipoEditor": null,
+          "decisao": false
+        },
+        {
+          "seq": 306755721,
+          "numeroRegistro": "202500746297",
+          "numeroPeticao": "202500256689",
+          "tipoDespacho": null,
+          "tipoDocumento": {
+            "codigo": 5,
+            "descricao": null
+          },
+          "ministro": null,
+          "dataConfirmacaoPublicacao": "2025-04-10T03:00:00.000+0000",
+          "nome": null,
+          "seqInteiroTeor": 2634861,
+          "julgamentoEletronico": false,
+          "indTipoEditor": null,
+          "decisao": false
+        },
+        {
+          "seq": 304624398,
+          "numeroRegistro": "202500746297",
+          "numeroPeticao": "202500256689",
+          "tipoDespacho": null,
+          "tipoDocumento": {
+            "codigo": 91,
+            "descricao": null
+          },
+          "ministro": null,
+          "dataConfirmacaoPublicacao": "2025-04-10T03:00:00.000+0000",
+          "nome": "REYNALDO SOARES DA FONSECA",
+          "seqInteiroTeor": 2634861,
+          "julgamentoEletronico": false,
+          "indTipoEditor": null,
+          "decisao": false
+        },
+        {
+          "seq": 305490565,
+          "numeroRegistro": "202500746297",
+          "numeroPeticao": "202500256689",
+          "tipoDespacho": null,
+          "tipoDocumento": {
+            "codigo": 41,
+            "descricao": null
+          },
+          "ministro": null,
+          "dataConfirmacaoPublicacao": "2025-04-10T03:00:00.000+0000",
+          "nome": null,
+          "seqInteiroTeor": 2634861,
+          "julgamentoEletronico": false,
+          "indTipoEditor": null,
+          "decisao": false
+        },
+        {
+          "seq": 300226897,
+          "numeroRegistro": "202500746297",
+          "numeroPeticao": null,
+          "tipoDespacho": null,
+          "tipoDocumento": {
+            "codigo": 6,
+            "descricao": "DESPACHO / DECISÃO                                                      "
+          },
+          "ministro": null,
+          "dataConfirmacaoPublicacao": "2025-03-13T03:00:00.000+0000",
+          "nome": "Decisão Conhecido o recurso de #{nome_da_parte} e não-provido #{tipo_de_retratacao} #{campo_livre_final} publicado(a) em 13/03/2025",
+          "seqInteiroTeor": null,
+          "julgamentoEletronico": false,
+          "indTipoEditor": null,
+          "decisao": false
+        }
+      ],
+      "representativoControversia": false,
+      "repetitivo": false,
+      "valorCausa": null
+    }
+  ]
+}
