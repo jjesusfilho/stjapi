@@ -145,7 +145,7 @@ class STJLer:
                 tipo_documento_data.append({k: v for k, v in tipo_documento.items() if v is not None})
 
             if tipo_documento_data:
-                dataframes['tipoDocumentoDecisao'] = pd.DataFrame(tipo_documento_data)
+                dataframes['TipoDocumentoDecisao'] = pd.DataFrame(tipo_documento_data)
 
         # Tabela ProcessoDecisao
         if decisoes and 'Decisao' in dataframes:
@@ -386,25 +386,25 @@ class STJLer:
         # Tabela OrgaoProcessante
         
         # Tabela OrgaoProcessante
-        orgaoProcesante = self.safe_get(process_data, 'orgaoProcesante')
+        orgaoProcessante = self.safe_get(process_data, 'orgaoProcessante')
         
-        if orgaoProcesante:
-            orgao_Procesante_data = {
-                'codigo': self.safe_get(orgaoProcesante, 'codigo'),
-                'nome': self.safe_get(orgaoProcesante, 'nome')
+        if orgaoProcessante:
+            orgao_Processante_data = {
+                'codigo': self.safe_get(orgaoProcessante, 'codigo'),
+                'nome': self.safe_get(orgaoProcessante, 'nome')
               
             }
-            dataframes['OrgaoProcesante'] = pd.DataFrame([{k: v for k, v in orgao_Procesante_data.items() if v is not None}])
+            dataframes['OrgaoProcessante'] = pd.DataFrame([{k: v for k, v in orgao_Processante_data.items() if v is not None}])
 
         ## Tabela OrgaoProcesanteProcesso
         
-        if orgaoProcesante:
+        if orgaoProcessante:
              
-            orgao_procesante_processo_data = {
+            orgao_processante_processo_data = {
                 'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
-                'codigo': self.safe_get(orgaoProcesante, 'codigo')            
+                'codigo': self.safe_get(orgaoProcessante, 'codigo')            
             }
-            dataframes['OrgaoProcesanteProcesso'] = pd.DataFrame([{k: v for k, v in orgao_procesante_processo_data.items() if v is not None}])
+            dataframes['OrgaoProcessanteProcesso'] = pd.DataFrame([{k: v for k, v in orgao_processante_processo_data.items() if v is not None}])
 
         # Tabela TipoDistribuicao
         tipoDistribuicao = self.safe_get(process_data, 'tipoDistribuicao')
