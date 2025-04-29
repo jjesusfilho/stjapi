@@ -130,7 +130,9 @@ class STJLer:
                 decisao_data.append({k: v for k, v in decisao_entry.items() if v is not None})
             
             if decisao_data:
-                dataframes['Decisao'] = pd.DataFrame(decisao_data)
+                df = pd.DataFrame(decisao_data)
+                df['dataConfirmacaoPublicacao']   = pd.to_datetime(df['dataConfirmacaoPublicacao'])
+                dataframes['Decisao'] = df
 
         # Tabela TipoDocumentoDecisao 
         if decisoes:
@@ -167,7 +169,9 @@ class STJLer:
                 }
                 peticoes_data.append({k: v for k, v in peticao_entry.items() if v is not None})     
             if peticoes_data:
-                dataframes['Peticoes'] = pd.DataFrame(peticoes_data)
+                df = pd.DataFrame(peticoes_data)
+                df['dataProtocolo']= pd.to_datetime(df['dataProtocolo'])
+                dataframes['Peticoes'] = df
         
         # Tabela ProcessoPeticoes
         if peticoes and 'Peticoes' in dataframes:
@@ -221,7 +225,7 @@ class STJLer:
         if local:
             local_data = {
                 "codigoLocal": self.safe_get(local,'seq'),
-                "numeroLocal": self.safe_get(local, 'numeroLocal')
+                "nomeLocal": self.safe_get(local, 'nomeLocal')
             }
             dataframes['Local'] = pd.DataFrame([{k: v for k, v in local_data.items() if v is not None}])
 
@@ -241,7 +245,20 @@ class STJLer:
                 "dataEntrada": self.safe_get(deslocamento, "dataEntrada"),
                 "dataSaida": self.safe_get(deslocamento,"dataSaida")
             }
-            dataframes['Deslocamento'] = pd.DataFrame([{k: v for k, v in deslocamento_data.items() if v is not None}])
+            
+            if deslocamento_data:
+                df = pd.DataFrame([{k: v for k, v in deslocamento_data.items() if v is not None}])
+                try:
+                    df['dataEntrada']= pd.to_datetime(df['dataEntrada'])
+                except:
+                    pass
+                try:
+                    df['dataSaida']= pd.to_datetime(df['dataSaida'])
+                except:
+                    pass
+                dataframes['Deslocamento'] = df
+        
+        
         
         # Tabela ProcessoFavorito
         
