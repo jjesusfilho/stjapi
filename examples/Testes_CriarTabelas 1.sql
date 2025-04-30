@@ -150,8 +150,8 @@ CREATE TABLE Deslocamento (
     numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
 	localEntradaSeq INT FOREIGN KEY REFERENCES Local(codigoLocal),
     localSaidaSeq INT FOREIGN KEY REFERENCES Local(codigoLocal),
-    dataEntrada DATETIME2 NOT NULL,
-    dataSaida DATETIME2 NOT NULL ---Nem sempre existe dataSaida. 
+    dataEntrada DATETIME2 NULL,
+    dataSaida DATETIME2 NULL ---Nem sempre existe dataSaida. 
 );
 
 CREATE TABLE ProcessoFavorito (
@@ -179,15 +179,15 @@ CREATE TABLE NumerosOrigemProcesso (
 
 CREATE TABLE Classe (
     codigo INT PRIMARY KEY,
-    sigla VARCHAR(10) NOT NULL,
-	codigoClasseEmbargada INT NOT NULL,
-	nome VARCHAR(255) NOT NULL   
+    sigla VARCHAR(10) NULL,
+	codigoClasseEmbargada INT NULL,
+	nome VARCHAR(255) NULL   
 );
 
 CREATE TABLE Status (
     codigo INT PRIMARY KEY,
-    descricao VARCHAR(50) NOT NULL,
-	tramitando BIT NOT NULL 
+    descricao VARCHAR(50) NULL,
+	tramitando BIT NULL 
 );
 
 CREATE TABLE Destino (
@@ -203,12 +203,12 @@ CREATE TABLE AssuntoProcesso (
 
 CREATE TABLE Assunto (
     codigo INT PRIMARY KEY,
-	descAssunto VARCHAR(255) NOT NULL,
+	descAssunto VARCHAR(255)  NULL,
 	descricao VARCHAR(255) NULL, --*****
-	descricaoCompleta VARCHAR(MAX) NOT NULL,
+	descricaoCompleta VARCHAR(MAX)  NULL,
     codigoAreaEspecializacao INT,
-	nomeAreaEspecializacao VARCHAR(50) NOT NULL,
-	segredoJustica BIT NOT NULL --H� assuntos como segredo justi�a
+	nomeAreaEspecializacao VARCHAR(50)  NULL,
+	segredoJustica BIT NULL --H� assuntos como segredo justi�a
 	);
 	
 CREATE TABLE Origem (

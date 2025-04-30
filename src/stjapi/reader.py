@@ -360,7 +360,7 @@ class STJLer:
         
         if assunto:
             assunto_data = {
-                'codigo': self.safe_get(assunto, 'codigo'),
+                'codigo': self.safe_get(assunto, 'seq'),
                 'descAssunto': self.safe_get(assunto, 'descAssunto'),
                 'descricao': self.safe_get(assunto, 'descricao'),
                 'descricaoCompleta': self.safe_get(assunto, 'descricaoCompleta'),
