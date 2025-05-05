@@ -28,7 +28,7 @@ CREATE TABLE Processo (
 	numeroUnicoFormatado VARCHAR(50),
     codigoClasseAnterior INT,--**************** VALIDAR - CLASSE
     numeroClasseAnterior INT,--**************** VALIDAR - CLASSE
-	numeroRegistroVinculante VARCHAR(10) NULL, --*****
+	numeroRegistroVinculante VARCHAR(25) NULL, --*****
 	codigoOrigem  VARCHAR(10) FOREIGN KEY REFERENCES Origem(Codigo),
 	tipo CHAR(1),
     processoFisico BIT,
@@ -69,7 +69,8 @@ CREATE TABLE TipoDocumentoDecisao (
 );
 
 CREATE TABLE Decisao (
-    codigo BIGINT PRIMARY KEY,
+    numeroRegitro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
+    codigo BIGINT, --PRIMARY KEY,
     numeroPeticao BIGINT NULL,
     tipoDespacho VARCHAR(10) NULL, --*****
 	codigoTipoDocumento INT FOREIGN KEY REFERENCES TipoDocumentoDecisao(codigo) ,
@@ -82,10 +83,10 @@ CREATE TABLE Decisao (
     decisao BIT 
 );
 
-CREATE TABLE ProcessoDecisao (
-    numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
-    codigoDecisao BIGINT FOREIGN KEY REFERENCES Decisao(codigo)
-);
+--CREATE TABLE ProcessoDecisao (
+  --  numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
+    --codigoDecisao BIGINT FOREIGN KEY REFERENCES Decisao(codigo)
+--);
 
 CREATE TABLE Peticoes (
     numero BIGINT PRIMARY KEY,
@@ -110,9 +111,9 @@ CREATE TABLE Partes (
     indicadorAutorReu CHAR(1) NULL,
 	codigoTipoParte VARCHAR(10) NULL,
 	codigoOAB VARCHAR(10) NULL,
-    nome VARCHAR(255) NOT NULL,
-    cpfCnpj VARCHAR(20) UNIQUE,
-    codigo INT PRIMARY KEY,
+    nome VARCHAR(255)  NULL,
+    cpfCnpj VARCHAR(20) NULL,
+    codigo INT ,
 	seqParteProcesso BIGINT, --***** S� APARECE QUANDO TIPO PARTE
 	tipo VARCHAR(10), 
 	codTipoEnte VARCHAR(10) NULL,
@@ -148,8 +149,8 @@ CREATE TABLE LocalProcesso (
 CREATE TABLE Deslocamento (
     codigo BIGINT PRIMARY KEY, -- Identificador �nico do deslocamento
     numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	localEntradaSeq INT FOREIGN KEY REFERENCES Local(codigoLocal),
-    localSaidaSeq INT FOREIGN KEY REFERENCES Local(codigoLocal),
+	localEntradaSeq INT --FOREIGN KEY REFERENCES Local(codigoLocal),
+    localSaidaSeq INT --FOREIGN KEY REFERENCES Local(codigoLocal),
     dataEntrada DATETIME2 NULL,
     dataSaida DATETIME2 NULL ---Nem sempre existe dataSaida. 
 );

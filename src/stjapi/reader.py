@@ -120,19 +120,25 @@ class STJLer:
             decisao_data = []
             for decisao in decisoes:
                 decisao_entry = {
+                    'numeroRegistro': self.safe_get(process_data,'numeroRegistro')
                     'codigo': self.safe_get(decisao, 'seq'),
                     'numeroPeticao': self.safe_get(decisao, 'numeroPeticao'),
+                    'tipoDespacho': self.safe_get(decisao, 'tipoDespacho'),
                     'codigoTipoDocumento': self.safe_get(decisao, 'tipoDocumento', 'codigo'),
+                    'ministro': self.safe_get(decisao, 'ministro'),
                     'dataConfirmacaoPublicacao': self.safe_get(decisao, 'dataConfirmacaoPublicacao'),
                     'nome': self.safe_get(decisao, 'nome'),
-                    'julgamentoEletronico': self.safe_get(decisao, 'julgamentoEletronico')
+                    'seqInteiroTeor': self.safe_get(decisao, 'seqInteiroTeor'),
+                    'julgamentoEletronico': self.safe_get(decisao, 'julgamentoEletronico'),
+                    'indTipoEditor': self.safe_get(decisao, "indTipoEditor"),
+                    'decisao': self.safe_get(decisao, 'decisao')
                 }
                 decisao_data.append({k: v for k, v in decisao_entry.items() if v is not None})
             
             if decisao_data:
                 df = pd.DataFrame(decisao_data)
                 df['dataConfirmacaoPublicacao']   = pd.to_datetime(df['dataConfirmacaoPublicacao'])
-                dataframes['Decisao'] = df
+                dataframes['ProcessoDecisao'] = df
 
         # Tabela TipoDocumentoDecisao 
         if decisoes:
@@ -150,9 +156,9 @@ class STJLer:
                 dataframes['TipoDocumentoDecisao'] = pd.DataFrame(tipo_documento_data)
 
         # Tabela ProcessoDecisao
-        if decisoes and 'Decisao' in dataframes:
+       # if decisoes and 'Decisao' in dataframes:
             
-            dataframes['ProcessoDecisao'] =  self.add_fk_table('codigo', dataframes['Decisao']['codigo'])
+        #    dataframes['ProcessoDecisao'] =  self.add_fk_table('codigo', dataframes['Decisao']['codigo'])
 
         ## Tabela Peticoes
         peticoes = self.safe_get(process_data, 'peticoes', default = [])
