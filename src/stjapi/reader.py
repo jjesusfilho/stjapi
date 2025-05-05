@@ -120,7 +120,7 @@ class STJLer:
             decisao_data = []
             for decisao in decisoes:
                 decisao_entry = {
-                    'numeroRegistro': self.safe_get(process_data,'numeroRegistro')
+                    'numeroRegistro': self.safe_get(process_data,'numeroRegistro'),
                     'codigo': self.safe_get(decisao, 'seq'),
                     'numeroPeticao': self.safe_get(decisao, 'numeroPeticao'),
                     'tipoDespacho': self.safe_get(decisao, 'tipoDespacho'),
