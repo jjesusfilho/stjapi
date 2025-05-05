@@ -157,20 +157,20 @@ CREATE TABLE Deslocamento (
 
 CREATE TABLE ProcessoFavorito (
     numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	numeroRegistroFavorito INT NOT NULL,
-	seqProcessoFavorito int NOT NULL
+	numeroRegistroFavorito INT NULL,
+	seqProcessoFavorito int  NULL
 );
 
 CREATE TABLE MinistroRelatorProcesso (
     numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	numMinistro INT NOT NULL
+	numMinistro INT NULL
 );
 
 CREATE TABLE MinistroRelator (
     numMinistro INT PRIMARY KEY,
-    nomeMinistro VARCHAR(255) NOT NULL,
-    sexoMinistro VARCHAR(1) NOT NULL,
-    codigoTipoMinistro VARCHAR(10) NOT NULL
+    nomeMinistro VARCHAR(255) NULL,
+    sexoMinistro VARCHAR(1) NULL,
+    codigoTipoMinistro VARCHAR(10) NULL
 );
 
 CREATE TABLE NumerosOrigemProcesso (
@@ -220,7 +220,7 @@ CREATE TABLE Origem (
 
 CREATE TABLE OrgaoJulgadorProcesso (
     numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigo VARCHAR(10) NOT NULL
+	codigo VARCHAR(10)  NULL
 );
 
 
@@ -231,17 +231,17 @@ CREATE TABLE OrgaoJulgador (
 
 CREATE TABLE OrgaoProcessanteProcesso (
     numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigo VARCHAR(10) NOT NULL
+	codigo VARCHAR(10) NULL
 );
 
 CREATE TABLE OrgaoProcessante (
     codigo VARCHAR(10) PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL
+    nome VARCHAR(255) NULL
 );
 
 CREATE TABLE FormaDistribuicaoProcesso (
     numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigo INT NOT NULL
+	codigo INT NULL
 );
 
 CREATE TABLE FormaDistribuicao (
@@ -251,7 +251,7 @@ CREATE TABLE FormaDistribuicao (
 
 CREATE TABLE TipoDistribuicaoProcesso (
     numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigo INT NOT NULL
+	codigo INT NULL
 );
 
 CREATE TABLE TipoDistribuicao (

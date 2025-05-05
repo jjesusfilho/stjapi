@@ -181,7 +181,7 @@ class STJLer:
         
         # Tabela ProcessoPeticoes
         if peticoes and 'Peticoes' in dataframes:
-            dataframes['ProcessoPeticao'] = self.add_fk_table('numero', dataframes['Peticoes']['numero'])
+            dataframes['ProcessoPeticoes'] = self.add_fk_table('numero', dataframes['Peticoes']['numero'])
 
         # Tabela Partes
         partes = self.safe_get(process_data, 'partesAdvogados', default=[])
