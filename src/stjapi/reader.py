@@ -332,7 +332,8 @@ class STJLer:
             for numero in numeros_origem:
                 origem_entry = {
                     'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
-                    'numerosOrigem': self.safe_get(numero, 'numeroProcessoOrigem')
+                    'numerosOrigem': self.safe_get(numero, 'numeroProcessoOrigem'),
+                    'numOrdem': self.safe_get(numero,'numOrdem')
                 }
                 numeros_origem_data.append({k: v for k, v in origem_entry.items() if v is not None})
             

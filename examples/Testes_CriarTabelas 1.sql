@@ -175,7 +175,8 @@ CREATE TABLE MinistroRelator (
 
 CREATE TABLE NumerosOrigemProcesso (
     numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	numerosOrigem VARCHAR(255) NOT NULL--DataType vai depender da formata��o
+	numerosOrigem VARCHAR(255) NULL--DataType vai depender da formata��o,
+    numOrdem Int NULL
 	);
 
 CREATE TABLE Classe (
