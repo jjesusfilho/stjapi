@@ -379,7 +379,7 @@ class STJLer:
         if assunto:
             assunto_processo_data = {
                 'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
-                'codigo': self.safe_get(assunto, 'codigo'),
+                'codigo': self.safe_get(assunto, 'seq'),
                 'codigoAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','codigoAreaEspecializacao'),
             }
             dataframes['AssuntoProcesso'] = pd.DataFrame([{k: v for k, v in assunto_processo_data.items() if v is not None}])
