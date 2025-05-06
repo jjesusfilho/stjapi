@@ -207,7 +207,7 @@ class STJLer:
                 dataframes['Partes'] = pd.DataFrame(partes_data)
 
         if partes and 'Partes' in dataframes:
-           dataframes['ProcessoPartes'] = self.add_fk_table('codigo', dataframes['Partes']['codigo'])
+           dataframes['ProcessoPartes'] = self.add_fk_table('codigoParte', dataframes['Partes']['codigo'])
             
         # Tabela Fases
         fases = self.safe_get(process_data, 'fases', default=[])
