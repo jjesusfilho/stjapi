@@ -273,8 +273,8 @@ class STJLer:
         if processoFavorito: 
             processoFavorito_data = {
                 'numeroRegistro': self.safe_get(process_data, 'numeroRegistro'),
-                'numeroRegistroFavorito': self.safe_get(processoFavorito, 'numeroRegistro'),
-                'seqProcessoFavorito': self.safe_get(processoFavorito,'seqProcessoFavorito')
+                'numeroRegistroFavorito': self.safe_get(processoFavorito, 'numeroRegistro', default = None),
+                'seqProcessoFavorito': self.safe_get(processoFavorito,'seqProcessoFavorito', default = None)
             }
             dataframes['ProcessoFavorito'] = pd.DataFrame([{k: v for k, v in processoFavorito_data.items() if v is not None}])
 

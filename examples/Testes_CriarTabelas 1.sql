@@ -143,7 +143,7 @@ CREATE TABLE Local (
 
 CREATE TABLE LocalProcesso (
     numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigoLocal INT NOT NULL
+	codigoLocal BIGINT NULL
 );
 
 CREATE TABLE Deslocamento (
