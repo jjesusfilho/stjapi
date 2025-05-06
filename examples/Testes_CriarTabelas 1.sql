@@ -124,8 +124,8 @@ CREATE TABLE Partes (
 );
 
 CREATE TABLE ProcessoPartes (
-	numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigoParte INT FOREIGN KEY REFERENCES Partes(codigo)
+	numeroRegistro BIGINT  
+	codigoParte BIGINT
 );
 
 CREATE TABLE Fases (
