@@ -8,7 +8,7 @@ D�vida:
 */
 
 CREATE TABLE Processo (
-    numeroRegistro BIGINT IDENTITY(1,1) PRIMARY KEY,
+    numeroRegistro BIGINT PRIMARY KEY,
     numeroRegistroFormatado VARCHAR(25),
     codigoClasse INT,
 	numeroProcessoClasse INT, --**************** VALIDAR  - CLASSE
@@ -28,8 +28,8 @@ CREATE TABLE Processo (
 	numeroUnicoFormatado VARCHAR(50),
     codigoClasseAnterior INT,--**************** VALIDAR - CLASSE
     numeroClasseAnterior INT,--**************** VALIDAR - CLASSE
-	numeroRegistroVinculante VARCHAR(10) NULL, --*****
-	codigoOrigem  VARCHAR(10), 
+	numeroRegistroVinculante VARCHAR(25) NULL, --*****
+	codigoOrigem  VARCHAR(10) FOREIGN KEY REFERENCES Origem(Codigo),
 	tipo CHAR(1),
     processoFisico BIT,
     processoEletronico BIT,
@@ -40,7 +40,7 @@ CREATE TABLE Processo (
 	codigoDestino INT,
 	codigoStatus INT,
 	numerosConexo VARCHAR(10) NULL,
-	nomeLocalOrigem VARCHAR(10) NULL,
+	nomeLocalOrigem VARCHAR(255) NULL,
 	numeroOrigemProtocolo VARCHAR(50),
 	observacaoProcesso VARCHAR(MAX) NULL,
 	pedidoLiminar BIT, 
@@ -69,12 +69,13 @@ CREATE TABLE TipoDocumentoDecisao (
 );
 
 CREATE TABLE Decisao (
-    codigo BIGINT PRIMARY KEY,
+    numeroRegitro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
+    codigo BIGINT, --PRIMARY KEY,
     numeroPeticao BIGINT NULL,
     tipoDespacho VARCHAR(10) NULL, --*****
 	codigoTipoDocumento INT FOREIGN KEY REFERENCES TipoDocumentoDecisao(codigo) ,
     ministro VARCHAR(255) NULL,
-    dataConfirmacaoPublicacao DATETIME,
+    dataConfirmacaoPublicacao DATETIME2,
     nome VARCHAR(255) NULL,
     seqInteiroTeor BIGINT NULL,
     julgamentoEletronico BIT,
@@ -82,14 +83,14 @@ CREATE TABLE Decisao (
     decisao BIT 
 );
 
-CREATE TABLE ProcessoDecisao (
-    numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
-    codigoDecisao BIGINT FOREIGN KEY REFERENCES Decisao(codigo)
-);
+--CREATE TABLE ProcessoDecisao (
+  --  numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
+    --codigoDecisao BIGINT FOREIGN KEY REFERENCES Decisao(codigo)
+--);
 
 CREATE TABLE Peticoes (
     numero BIGINT PRIMARY KEY,
-    dataProtocolo DATETIME,
+    dataProtocolo DATETIME2,
     descTipoPeticao VARCHAR(255),
     partePeticionante VARCHAR(255),
     status VARCHAR(500)
@@ -110,9 +111,9 @@ CREATE TABLE Partes (
     indicadorAutorReu CHAR(1) NULL,
 	codigoTipoParte VARCHAR(10) NULL,
 	codigoOAB VARCHAR(10) NULL,
-    nome VARCHAR(255) NOT NULL,
-    cpfCnpj VARCHAR(20) UNIQUE,
-    codigo INT PRIMARY KEY,
+    nome VARCHAR(255)  NULL,
+    cpfCnpj VARCHAR(20) NULL,
+    codigo INT ,
 	seqParteProcesso BIGINT, --***** S� APARECE QUANDO TIPO PARTE
 	tipo VARCHAR(10), 
 	codTipoEnte VARCHAR(10) NULL,
@@ -123,14 +124,14 @@ CREATE TABLE Partes (
 );
 
 CREATE TABLE ProcessoPartes (
-	numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigoParte INT FOREIGN KEY REFERENCES Partes(codigo)
+	numeroRegistro BIGINT  
+	codigoParte BIGINT
 );
 
 CREATE TABLE Fases (
     codigo INT PRIMARY KEY,
     numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	dataHoraFase DATETIME,
+	dataHoraFase DATETIME2,
     textoFase VARCHAR(MAX),
     descricaoSimplificada VARCHAR(MAX) --TEM VALOR BRANCO AO INV�S DE NULO
 );
@@ -141,53 +142,54 @@ CREATE TABLE Local (
 );
 
 CREATE TABLE LocalProcesso (
-    numeroRegistro BIGINT IDENTITY (1,1) FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigoLocal INT NOT NULL
+    numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
+	codigoLocal BIGINT NULL
 );
 
-CREATE TABLE Deslocamento (--- Aqui não foram criadas duas tabelas.
+CREATE TABLE Deslocamento (
     codigo BIGINT PRIMARY KEY, -- Identificador �nico do deslocamento
     numeroRegistro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	localEntradaSeq INT FOREIGN KEY REFERENCES Local(codigoLocal),
-    localSaidaSeq INT FOREIGN KEY REFERENCES Local(codigoLocal),
-    dataEntrada DATETIME2 NOT NULL,
-    dataSaida DATETIME2 NOT NULL
+	localEntradaSeq INT --FOREIGN KEY REFERENCES Local(codigoLocal),
+    localSaidaSeq INT --FOREIGN KEY REFERENCES Local(codigoLocal),
+    dataEntrada DATETIME2 NULL,
+    dataSaida DATETIME2 NULL ---Nem sempre existe dataSaida. 
 );
 
 CREATE TABLE ProcessoFavorito (
-    numeroRegistro BIGINT IDENTITY (1,1) FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	numeroRegistroFavorito INT NOT NULL,
-	seqProcessoFavorito int NOT NULL
+    numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
+	numeroRegistroFavorito INT NULL,
+	seqProcessoFavorito int  NULL
 );
 
 CREATE TABLE MinistroRelatorProcesso (
-    numeroRegistro BIGINT IDENTITY (1,1) FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	numMinistro INT NOT NULL
+    numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
+	numMinistro INT NULL
 );
 
 CREATE TABLE MinistroRelator (
     numMinistro INT PRIMARY KEY,
-    nomeMinistro VARCHAR(255) NOT NULL,
-    sexoMinistro VARCHAR(1) NOT NULL,
-    codigoTipoMinistro VARCHAR(10) NOT NULL
+    nomeMinistro VARCHAR(255) NULL,
+    sexoMinistro VARCHAR(1) NULL,
+    codigoTipoMinistro VARCHAR(10) NULL
 );
 
 CREATE TABLE NumerosOrigemProcesso (
-    numeroRegistro BIGINT IDENTITY (1,1) FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	numerosOrigem INT NOT NULL---DataType vai depender da formata��o Obs. Se mantiver como int, perdemos os zeros iniciais.
+    numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
+	numerosOrigem VARCHAR(255) NULL--DataType vai depender da formata��o,
+    numOrdem Int NULL
 	);
 
 CREATE TABLE Classe (
     codigo INT PRIMARY KEY,
-    sigla VARCHAR(10) NOT NULL,
-	codigoClasseEmbargada INT NOT NULL,
-	nome VARCHAR(255) NOT NULL   
+    sigla VARCHAR(10) NULL,
+	codigoClasseEmbargada INT NULL,
+	nome VARCHAR(255) NULL   
 );
 
 CREATE TABLE Status (
     codigo INT PRIMARY KEY,
-    descricao VARCHAR(50) NOT NULL,
-	tramitando BIT NOT NULL 
+    descricao VARCHAR(50) NULL,
+	tramitando BIT NULL 
 );
 
 CREATE TABLE Destino (
@@ -196,30 +198,30 @@ CREATE TABLE Destino (
 );
 
 CREATE TABLE AssuntoProcesso (
-    numeroRegistro BIGINT IDENTITY (1,1) FOREIGN KEY REFERENCES Processo(numeroRegistro),
+    numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
 	codigo INT NOT NULL,
 	codigoAreaEspecializacao INT NOT NULL --se codigo assunto N�O se repetir por area ELIMINAR daqui
 );
 
 CREATE TABLE Assunto (
     codigo INT PRIMARY KEY,
-	descAssunto VARCHAR(255) NOT NULL,
+	descAssunto VARCHAR(255)  NULL,
 	descricao VARCHAR(255) NULL, --*****
-	descricaoCompleta VARCHAR(MAX) NOT NULL,
+	descricaoCompleta VARCHAR(MAX)  NULL,
     codigoAreaEspecializacao INT,
-	nomeAreaEspecializacao VARCHAR(50) NOT NULL,
-	segredoJustica BIT NOT NULL --H� assuntos como segredo justi�a
+	nomeAreaEspecializacao VARCHAR(50)  NULL,
+	segredoJustica BIT NULL --H� assuntos como segredo justi�a
 	);
 	
-CREATE TABLE Origem (--- Falta numeroRegistro?
-    codigo VARCHAR(10) PRIMARY KEY, --- Adicionar numeroRegistro
+CREATE TABLE Origem (
+    codigo VARCHAR(10) PRIMARY KEY,
     nome VARCHAR(255) NOT NULL,
     sigla VARCHAR(10) NOT NULL
 );
 
 CREATE TABLE OrgaoJulgadorProcesso (
-    numeroRegistro BIGINT IDENTITY (1,1) FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigo VARCHAR(10) NOT NULL
+    numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
+	codigo VARCHAR(10)  NULL
 );
 
 
@@ -229,36 +231,34 @@ CREATE TABLE OrgaoJulgador (
 );
 
 CREATE TABLE OrgaoProcessanteProcesso (
-    numeroRegistro BIGINT IDENTITY (1,1) FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigo VARCHAR(10) NOT NULL
+    numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
+	codigo VARCHAR(10) NULL
 );
 
 CREATE TABLE OrgaoProcessante (
     codigo VARCHAR(10) PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL
+    nome VARCHAR(255) NULL
 );
 
-CREATE TABLE formaDistribuicaoProcesso (
-    numeroRegistro BIGINT IDENTITY (1,1) FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigo INT NOT NULL
+CREATE TABLE FormaDistribuicaoProcesso (
+    numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
+	codigo INT NULL
 );
 
-CREATE TABLE formaDistribuicao ( 
+CREATE TABLE FormaDistribuicao (
     codigo INT PRIMARY KEY,
     descricao VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE tipoDistribuicaoProcesso (
-    numeroRegistro BIGINT IDENTITY (1,1) FOREIGN KEY REFERENCES Processo(numeroRegistro),
-	codigo INT NOT NULL
+CREATE TABLE TipoDistribuicaoProcesso (
+    numeroRegistro BIGINT  FOREIGN KEY REFERENCES Processo(numeroRegistro),
+	codigo INT NULL
 );
 
-CREATE TABLE tipoDistribuicao ( ---Há necessidade de criar duas tabelas?
+CREATE TABLE TipoDistribuicao (
     codigo INT PRIMARY KEY,
     descricao VARCHAR(255) NOT NULL
 );
-
-
 
 
 
