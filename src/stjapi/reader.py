@@ -36,7 +36,14 @@ class STJLer:
         pdf = pd.DataFrame({column_name: column})
         pdf['numeroRegistro'] = self.process_data['numeroRegistro']
         return pdf
-
+    
+    def get_branch(self, x):
+        
+        try:
+            return  re.search('.+(?=[$-])',x).group()
+        except:
+            return None
+        
     # Function to create DataFrames for each table
     def create_dataframes(self):
 
@@ -366,13 +373,14 @@ class STJLer:
         # Tabela Assunto
         assunto = self.safe_get(process_data, 'assunto')
         
+        
         if assunto:
             assunto_data = {
                 'codigo': self.safe_get(assunto, 'seq'),
                 'descAssunto': self.safe_get(assunto, 'descAssunto'),
                 'descricao': self.safe_get(assunto, 'descricao'),
                 'descricaoCompleta': self.safe_get(assunto, 'descricaoCompleta'),
-                'ramoDireito': re.search('.+?(?= -)',self.safe_get(assunto,'descricaoCompleta')).group(),
+                'ramoDireito': self.get_branch(self.safe_get(assunto,'descricaoCompleta')),
                 'codigoAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','codigoAreaEspecializacao'),
                 'nomeAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','nomeAreaEspecializacao'),
                 'segredoJustica': self.safe_get(assunto, 'segredoJustica')
