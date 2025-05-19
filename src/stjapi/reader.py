@@ -40,7 +40,7 @@ class STJLer:
     def get_branch(self, x):
         
         try:
-            return  re.search('.+(?=[$-])',x).group()
+            return  x.split("-")[0].strip()
         except:
             return None
         
