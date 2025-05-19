@@ -3,6 +3,7 @@ import json
 import numpy as np
 from datetime import datetime
 from typing import Optional
+import re
 
 class STJLer:
     
@@ -371,6 +372,7 @@ class STJLer:
                 'descAssunto': self.safe_get(assunto, 'descAssunto'),
                 'descricao': self.safe_get(assunto, 'descricao'),
                 'descricaoCompleta': self.safe_get(assunto, 'descricaoCompleta'),
+                'ramoDireito': re.search('.+?(?= -)',self.safe_get(assunto,'descricaoCompleta')).group(),
                 'codigoAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','codigoAreaEspecializacao'),
                 'nomeAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','nomeAreaEspecializacao'),
                 'segredoJustica': self.safe_get(assunto, 'segredoJustica')
