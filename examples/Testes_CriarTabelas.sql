@@ -68,10 +68,10 @@ CREATE TABLE TipoDocumentoDecisao (
     descricao VARCHAR(255) NULL --TEM VALOR NULO 
 );
 
-CREATE TABLE Decisao (
+CREATE TABLE ProcessoDecisao (
     numeroRegitro BIGINT FOREIGN KEY REFERENCES Processo(numeroRegistro),
     codigo BIGINT, --PRIMARY KEY,
-    numeroPeticao BIGINT NULL,
+    numeroPeticao varchar(50) NULL,
     tipoDespacho VARCHAR(10) NULL, --*****
 	codigoTipoDocumento INT FOREIGN KEY REFERENCES TipoDocumentoDecisao(codigo) ,
     ministro VARCHAR(255) NULL,
@@ -215,8 +215,8 @@ CREATE TABLE Assunto (
 	
 CREATE TABLE Origem (
     codigo VARCHAR(10) PRIMARY KEY,
-    nome VARCHAR(255) NOT NULL,
-    sigla VARCHAR(10) NOT NULL
+    nome VARCHAR(255)  NULL,
+    sigla VARCHAR(10)  NULL
 );
 
 CREATE TABLE OrgaoJulgadorProcesso (
@@ -227,7 +227,7 @@ CREATE TABLE OrgaoJulgadorProcesso (
 
 CREATE TABLE OrgaoJulgador (
     codigo VARCHAR(10) PRIMARY KEY, --*****
-	nome VARCHAR(255) NOT NULL
+	nome VARCHAR(255)  NULL
 );
 
 CREATE TABLE OrgaoProcessanteProcesso (
@@ -247,7 +247,7 @@ CREATE TABLE FormaDistribuicaoProcesso (
 
 CREATE TABLE FormaDistribuicao (
     codigo INT PRIMARY KEY,
-    descricao VARCHAR(255) NOT NULL
+    descricao VARCHAR(255)  NULL
 );
 
 CREATE TABLE TipoDistribuicaoProcesso (
@@ -257,7 +257,7 @@ CREATE TABLE TipoDistribuicaoProcesso (
 
 CREATE TABLE TipoDistribuicao (
     codigo INT PRIMARY KEY,
-    descricao VARCHAR(255) NOT NULL
+    descricao VARCHAR(255)  NULL
 );
 
 
