@@ -214,7 +214,7 @@ class STJLer:
                     'tipo': self.safe_get(parte, 'tipo'),
                     'descricaoTipoParte': self.safe_get(parte, 'descricaoTipoParte'),
                     'sexoParte': self.safe_get(parte, 'sexoParte'),
-                    'mpsp': is_mp(self.safe_get(parte, 'nome'))
+                    'mpsp': self.is_mp(self.safe_get(parte, 'nome'))
                 }
                 partes_data.append({k: v for k, v in parte_entry.items() if v is not None})
             
