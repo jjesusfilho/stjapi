@@ -43,8 +43,11 @@ class STJLer:
             return  x.split("-")[0].strip()
         except:
             return None
-        
-    # Function to create DataFrames for each table
+    
+    def is_mp(self, x):
+        regex = '(?i)(minist[ée]rio\\s+p[úu]blico|procurador.+justi[çc]a).+s.o\\s+paulo'
+        return bool(re.search(regex, x))   
+         
     def create_dataframes(self):
 
         filepath = self.filename
@@ -116,12 +119,13 @@ class STJLer:
             'representativoControversia': self.safe_get(process_data, 'representativoControversia'),
             'repetitivo': self.safe_get(process_data, 'repetitivo'),
             'valorCausa': self.safe_get(process_data, 'valorCausa'),
-            'dataSituacao': data_situacao
+            'dataSituacao': data_situacao,
+            'codigoRelator': self.safe_get(process_data, 'ministroRelator'  ,'numMinistro'),
+            'codigoAssunto': self.safe_get(process_data, 'assunto','seq')
         }
         
         dataframes['Processo'] = pd.DataFrame([processo_data])
                 
-        
         # Tabela Decisao
         decisoes = self.safe_get(process_data, 'decisoes', default=[])
         if decisoes:
@@ -195,6 +199,8 @@ class STJLer:
         partes = self.safe_get(process_data, 'partesAdvogados', default=[])
         if partes:
             partes_data = []
+            
+            
             for parte in partes:
                 parte_entry = {
                     'siglaTipoParte': self.safe_get(parte, 'siglaTipoParte'),
@@ -207,7 +213,8 @@ class STJLer:
                     'seqParteProcesso': self.safe_get(parte, 'seqParteProcesso'),
                     'tipo': self.safe_get(parte, 'tipo'),
                     'descricaoTipoParte': self.safe_get(parte, 'descricaoTipoParte'),
-                    'sexoParte': self.safe_get(parte, 'sexoParte')
+                    'sexoParte': self.safe_get(parte, 'sexoParte'),
+                    'mpsp': is_mp(self.safe_get(parte, 'nome'))
                 }
                 partes_data.append({k: v for k, v in parte_entry.items() if v is not None})
             
@@ -216,6 +223,8 @@ class STJLer:
 
         if partes and 'Partes' in dataframes:
            dataframes['ProcessoPartes'] = self.add_fk_table('codigoParte', dataframes['Partes']['codigo'])
+           
+
             
         # Tabela Fases
         fases = self.safe_get(process_data, 'fases', default=[])

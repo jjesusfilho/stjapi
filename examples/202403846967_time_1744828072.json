@@ -83,7 +83,7 @@
       "ministroRelator": [
         {
           "ministro": {
-            "numMinistro": 1155,
+        "numMinistro": 1155,
             "nomeMinistro": "SÉRGIO KUKINA",
             "sexoMinistro": "M"
           },
@@ -304,7 +304,7 @@
         {
           "seq": 240043806,
           "dataHoraFase": "2024-10-16T05:35:29.483",
-          "textoFase": "Disponibilizada intimação eletrônica (Decisões e Vistas) ao(à) MINISTÉRIO PÚBLICO FEDERAL ",
+          "eextoFase": "Disponibilizada intimação eletrônica (Decisões e Vistas) ao(à) MINISTÉRIO PÚBLICO FEDERAL ",
           "descricaoSimplificada": "Uma comunicação eletrônica foi disponibilizada para que alguém ou algum ente tenha ciência de um ato do processo."
         },
         {
