@@ -198,32 +198,43 @@ class STJLer:
         # Tabela Partes
         partes = self.safe_get(process_data, 'partesAdvogados', default=[])
         if partes:
-            partes_data = []
-            
+            partes_data = []    
+            processo_partes_data = []
             
             for parte in partes:
                 parte_entry = {
-                    'siglaTipoParte': self.safe_get(parte, 'siglaTipoParte'),
-                    'indicadorAutorReu': self.safe_get(parte, 'indicadorAutorReu'),
-                    'codigoTipoParte': self.safe_get(parte, 'codigoTipoParte'),
                     'codigoOAB': self.safe_get(parte, 'codigoOAB'),
                     'nome': self.safe_get(parte, 'nome'),
                     'cpfCnpj': self.safe_get(parte, 'cpfCnpj'),
                     'codigo': self.safe_get(parte, 'seq'),
-                    'seqParteProcesso': self.safe_get(parte, 'seqParteProcesso'),
                     'tipo': self.safe_get(parte, 'tipo'),
-                    'descricaoTipoParte': self.safe_get(parte, 'descricaoTipoParte'),
+                    'numeroOrdemParte': self.safe_get(parte,'numeroOrdemParte'),
                     'sexoParte': self.safe_get(parte, 'sexoParte'),
                     'mpsp': self.is_mp(self.safe_get(parte, 'nome'))
                 }
+                
+                processo_partes_entry = {
+                    'numeroRegistro': self.safe_get(process_data,'numeroRegistro'),
+                    'codigoParte': self.sefe_get(parte,'seq'),
+                    'siglaTipoParte': self.safe_get(parte,'siglaTipoParte'),
+                    'descricaoTipoParte': self.safe_get(parte,'descricaoTipoParte'),
+                    'descricaoTipoParteFem': self.safe_gete(parte,'descricaoTipoParteFem'),
+                    'codTipoParte': self.safe_get(parte, 'codigoTipoParte'),
+                    'seqParteProcesso': self.safe_get(parte,'seqParteProcesso'),
+                    'indicadorAutorReu': self.safe_get(parte,'indicadorAutorReu')
+                }
+                
                 partes_data.append({k: v for k, v in parte_entry.items() if v is not None})
+                
+                processo_partes_data.append({k: v for k, v in processo_partes_entry.items() if v is not None})
+
+           
             
             if partes_data:
                 dataframes['Partes'] = pd.DataFrame(partes_data)
-
-        if partes and 'Partes' in dataframes:
-           dataframes['ProcessoPartes'] = self.add_fk_table('codigoParte', dataframes['Partes']['codigo'])
-           
+                
+            if processo_partes_data:
+                dataframes['ProcessoPartes'] = pd.DataFrame(processo_partes_data)
 
             
         # Tabela Fases
