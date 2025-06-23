@@ -46,7 +46,14 @@ class STJLer:
     
     def is_mp(self, x):
         regex = '(?i)(minist[ée]rio\\s+p[úu]blico|procurador.+justi[çc]a).+s.o\\s+paulo'
-        return bool(re.search(regex, x))   
+        return bool(re.search(regex, x))  
+    
+    def as_adv(self, x, y):
+         if x is None and y is not None:
+             return 'ADV' 
+        
+        
+         
          
     def create_dataframes(self):
 
@@ -223,6 +230,8 @@ class STJLer:
                     'seqParteProcesso': self.safe_get(parte,'seqParteProcesso'),
                     'indicadorAutorReu': self.safe_get(parte,'indicadorAutorReu')
                 }
+                
+                processo_partes_entry['codigoTipoParte'] = self.as_adv(processo_partes_entry['codigoTipoParte'], partes_entry['codigoOAB'])
                 
                 partes_data.append({k: v for k, v in parte_entry.items() if v is not None})
                 
