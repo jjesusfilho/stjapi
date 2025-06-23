@@ -231,7 +231,7 @@ class STJLer:
                     'indicadorAutorReu': self.safe_get(parte,'indicadorAutorReu')
                 }
                 
-                processo_partes_entry['codigoTipoParte'] = self.as_adv(processo_partes_entry['codigoTipoParte'], partes_entry['codigoOAB'])
+                processo_partes_entry['codigoTipoParte'] = self.as_adv(processo_partes_entry['codigoTipoParte'], parte_entry['codigoOAB'])
                 
                 partes_data.append({k: v for k, v in parte_entry.items() if v is not None})
                 
