@@ -215,7 +215,7 @@ class STJLer:
                 
                 processo_partes_entry = {
                     'numeroRegistro': self.safe_get(process_data,'numeroRegistro'),
-                    'codigoParte': self.sefe_get(parte,'seq'),
+                    'codigoParte': self.safe_get(parte,'seq'),
                     'siglaTipoParte': self.safe_get(parte,'siglaTipoParte'),
                     'descricaoTipoParte': self.safe_get(parte,'descricaoTipoParte'),
                     'descricaoTipoParteFem': self.safe_gete(parte,'descricaoTipoParteFem'),
