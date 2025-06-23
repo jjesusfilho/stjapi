@@ -218,7 +218,7 @@ class STJLer:
                     'codigoParte': self.safe_get(parte,'seq'),
                     'siglaTipoParte': self.safe_get(parte,'siglaTipoParte'),
                     'descricaoTipoParte': self.safe_get(parte,'descricaoTipoParte'),
-                    'descricaoTipoParteFem': self.safe_gete(parte,'descricaoTipoParteFem'),
+                    'descricaoTipoParteFem': self.safe_get(parte,'descricaoTipoParteFem'),
                     'codigoTipoParte': self.safe_get(parte, 'codigoTipoParte'),
                     'seqParteProcesso': self.safe_get(parte,'seqParteProcesso'),
                     'indicadorAutorReu': self.safe_get(parte,'indicadorAutorReu')
