@@ -50,7 +50,9 @@ class STJLer:
     
     def as_adv(self, x, y):
          if x is None and y is not None:
-             return 'ADV' 
+             return 'ADV'
+         else:
+             return x 
         
         
          
