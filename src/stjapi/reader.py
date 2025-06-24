@@ -414,7 +414,9 @@ class STJLer:
                 'ramoDireito': self.get_branch(self.safe_get(assunto,'descricaoCompleta')),
                 'codigoAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','codigoAreaEspecializacao'),
                 'nomeAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','nomeAreaEspecializacao'),
-                'segredoJustica': self.safe_get(assunto, 'segredoJustica')
+                'segredoJustica': self.safe_get(assunto, 'segredoJustica'),
+                'indAtivo': self.safe_get(assunto, 'seq') < 200000,
+                'flgPrincipal': True,
             }
             dataframes['Assunto'] = pd.DataFrame([{k: v for k, v in assunto_data.items() if v is not None}])
 
