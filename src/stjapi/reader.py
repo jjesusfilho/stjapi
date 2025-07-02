@@ -217,7 +217,6 @@ class STJLer:
                     'cpfCnpj': self.safe_get(parte, 'cpfCnpj'),
                     'codigo': self.safe_get(parte, 'seq'),
                     'tipo': self.safe_get(parte, 'tipo'),
-                    'numeroOrdemParte': self.safe_get(parte,'numeroOrdemParte'),
                     'sexoParte': self.safe_get(parte, 'sexoParte'),
                     'mpsp': self.is_mp(self.safe_get(parte, 'nome'))
                 }
@@ -230,7 +229,8 @@ class STJLer:
                     'descricaoTipoParteFem': self.safe_get(parte,'descricaoTipoParteFem'),
                     'codigoTipoParte': self.safe_get(parte, 'codigoTipoParte'),
                     'seqParteProcesso': self.safe_get(parte,'seqParteProcesso'),
-                    'indicadorAutorReu': self.safe_get(parte,'indicadorAutorReu')
+                    'indicadorAutorReu': self.safe_get(parte,'indicadorAutorReu'),
+                    'numeroOrdemParte': self.safe_get(parte,'numeroOrdemParte')
                 }
                 
                 processo_partes_entry['codigoTipoParte'] = self.as_adv(processo_partes_entry['codigoTipoParte'], parte_entry['codigoOAB'])
