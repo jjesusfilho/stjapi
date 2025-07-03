@@ -420,7 +420,7 @@ class STJLer:
                 'codigoAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','codigoAreaEspecializacao'),
                 'nomeAreaEspecializacao': self.safe_get(assunto, 'areaEspecializacao','nomeAreaEspecializacao'),
                 'segredoJustica': self.safe_get(assunto, 'segredoJustica'),
-                'indAtivo': is_active(self.safe_get(assunto, 'seq')),
+                'indAtivo': self.is_active(self.safe_get(assunto, 'seq')),
                 'flgPrincipal': True,
             }
             dataframes['Assunto'] = pd.DataFrame([{k: v for k, v in assunto_data.items() if v is not None}])
